@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - "12.14.1"
+
+branches:
+  only:
+    - master
+
+install:
+  - npm install --loglevel=error -g @angular/cli
+
+script:
+  - cd ng-project-megaphone &&
+    npm install --loglevel=error &&
+    ng build --prod
+
+after_success:
+  - echo $TRAVIS_BUILD_DIR
+  - pwd
+  - ls
+
+deploy:
+  provider: script
+  script: scripts/deploy.sh
+  on:
+    branch: master
