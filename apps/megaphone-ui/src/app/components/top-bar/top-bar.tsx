@@ -1,3 +1,4 @@
+import { debounce, throttle } from 'lodash';
 import React, { useEffect, useRef, useState } from 'react';
 import BurgerButton from './burger-button/burger-button';
 import TopBarButton from './top-bar-button/top-bar-button';
@@ -14,9 +15,11 @@ export function TopBar(props: TopBarProps) {
   const [activeOption, _setActiveOption] = useState<number>(0);
   const activeOptionRef = useRef<number>(0);
 
-  const pageRef = useRef<HTMLDivElement>(null);
+  const homePageRef = useRef<HTMLDivElement>(null);
+  const aboutPageRef = useRef<HTMLDivElement>(null);
+  const projectPageRef = useRef<HTMLDivElement>(null);
+  const contactPageRef = useRef<HTMLDivElement>(null);
   const [animate, setAnimate] = useState<boolean>(true);
-  const winWidth = useRef<number>(0);
 
   const topBarRef = useRef<HTMLDivElement>(null);
 
@@ -35,8 +38,10 @@ export function TopBar(props: TopBarProps) {
     window.addEventListener('resize', onResize);
     window.addEventListener('scroll', onScroll);
 
-    pageRef.current = document.getElementsByClassName('section-container')[0] as HTMLDivElement;
-    winWidth.current = window.innerWidth;
+    homePageRef.current = document.getElementById('home-page') as HTMLDivElement;
+    aboutPageRef.current = document.getElementById('about-page') as HTMLDivElement;
+    projectPageRef.current = document.getElementById('projects-page') as HTMLDivElement;
+    contactPageRef.current = document.getElementById('contact-page') as HTMLDivElement;
 
     return () => {
       window.removeEventListener('mousedown', onClick);
@@ -51,36 +56,36 @@ export function TopBar(props: TopBarProps) {
     }
   };
 
-  const onResize = (event: UIEvent) => {
-    if (
-      (winWidth.current >= 1024 && window.innerWidth < 1024) ||
-      (winWidth.current < 1024 && window.innerWidth >= 1024)
-    ) {
-      setMenuOpen(false);
-      setAnimate(false);
-      setTimeout(() => {
-        setAnimate(true);
-      }, 100);
-    }
+  const turnOnAnims = debounce(() => {
+    setAnimate(true);
+  }, 400);
 
-    winWidth.current = window.innerWidth;
-  };
+  const onResize = throttle((event: UIEvent) => {
+    setMenuOpen(false);
+    setAnimate(false);
+    turnOnAnims();
+  }, 100);
 
-  const onScroll = (event: Event) => {
-    const scroll = window.scrollY;
-    const height = pageRef.current.offsetHeight;
+  const onScroll = throttle((event: Event) => {
     const active = activeOptionRef.current;
+    const wHeight = window.innerHeight;
 
-    if (active !== 0 && scroll < height * 0.33) {
+    const apY = aboutPageRef.current.getBoundingClientRect().y;
+    const ppY = projectPageRef.current.getBoundingClientRect().y;
+    const cpY = contactPageRef.current.getBoundingClientRect().y;
+
+    const cutoff = 0.5 * wHeight;
+
+    if (active !== 0 && apY > cutoff) {
       setActiveOption(0);
-    } else if (active !== 1 && scroll > height * 0.66 && scroll < height * 1.33) {
+    } else if (active !== 1 && apY < cutoff && ppY > cutoff) {
       setActiveOption(1);
-    } else if (active !== 2 && scroll > height * 1.66 && scroll < height * 2.33) {
+    } else if (active !== 2 && ppY < cutoff && cpY > cutoff) {
       setActiveOption(2);
-    } else if (active !== 3 && scroll > height * 2.66 && scroll < height * 3.33) {
+    } else if (active !== 3 && cpY < cutoff) {
       setActiveOption(3);
     }
-  };
+  }, 100);
 
   return (
     <nav className="top-bar-container" ref={topBarRef}>
