@@ -27,6 +27,7 @@
     "workspace-generator": "nx workspace-generator"
   },
   "dependencies": {
+    "@tensorflow/tfjs": "^3.4.0",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
     "lodash": "^4.17.21",

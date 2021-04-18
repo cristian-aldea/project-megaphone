@@ -1,92 +1,169 @@
+import { DetectionResult } from '@project-megaphone/types';
+import { useEffect, useRef, useState } from 'react';
 import './app.scss';
-
-import { ReactComponent as Logo } from './logo.svg';
-import star from './star.svg';
+import { MULL_MODEL_URL, wasteClassMap } from './constants';
+import { TensorflowJsModel } from './services/tfjs.model';
+import { canvasToImageCoords, capitalizeString, coordsInBox, drawDetectionIcons } from './utilities';
 
 export function App() {
+  const modelRef = useRef<TensorflowJsModel>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const streamRef = useRef<MediaStream>(null);
+  const resultRef = useRef<DetectionResult[]>([]);
+
+  const [message, setMessage] = useState<string>('');
+
+  useEffect(() => {
+    setup();
+
+    return () => {
+      shutdown();
+    };
+  }, []);
+
+  /**
+   * Set up model, camera, listeners and other resources for the waste recognition page
+   */
+  const setup = async () => {
+    if (canvasRef.current) {
+      canvasRef.current.addEventListener('click', onCanvasClick);
+    }
+
+    modelRef.current = TensorflowJsModel.getInstance();
+
+    try {
+      await setupCamera();
+    } catch (err) {
+      if (err instanceof DOMException) {
+        setMessage(`Error: Permission to access the camera was denied`);
+      } else if (err instanceof Error) {
+        setMessage(`${err.message}`);
+      } else {
+        setMessage(err);
+      }
+      return;
+    }
+
+    setMessage('Warming up the ML model');
+
+    try {
+      await modelRef.current.init(MULL_MODEL_URL);
+    } catch {
+      setMessage('Error loading ML model');
+      return;
+    }
+
+    detectFrame(videoRef.current, modelRef.current, canvasRef.current);
+
+    setMessage('');
+  };
+
+  const setupCamera = async () => {
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      return navigator.mediaDevices
+        .getUserMedia({
+          video: { facingMode: 'environment' },
+          audio: false,
+        })
+        .then((stream) => {
+          streamRef.current = stream;
+          videoRef.current.srcObject = stream;
+          videoRef.current.play();
+
+          return new Promise<MediaStream>((resolve, reject) => {
+            videoRef.current.onloadedmetadata = () => {
+              // Doesn't work on all browsers. Keeping it here just in case
+              // const { width, height } = stream.getTracks()[0].getSettings();
+
+              const width = videoRef.current.videoWidth;
+              const height = videoRef.current.videoHeight;
+
+              canvasRef.current.height = height;
+              canvasRef.current.width = width;
+
+              resolve(stream);
+            };
+          });
+        });
+    } else {
+      throw new Error('Either no camera exists on your device, or your browser denied access to it');
+    }
+  };
+
+  /**
+   * Shutdown and dispose of page resources, such as the camera, model and listeners
+   */
+  const shutdown = () => {
+    if (canvasRef.current) {
+      canvasRef.current.removeEventListener('click', onCanvasClick);
+    }
+    modelRef.current.dispose();
+    if (streamRef.current && streamRef.current.getTracks().length > 0) {
+      streamRef.current.getTracks()[0].stop();
+    }
+  };
+
+  const detectFrame = async (
+    video: HTMLVideoElement,
+    model: TensorflowJsModel,
+    canvas: HTMLCanvasElement
+  ) => {
+    // TODO adjust numResults/threshold to filter out bad results better. Might need to be dynamic
+    resultRef.current = await model.detect(video, { numResults: 10, threshold: 0.6 });
+
+    drawDetectionIcons(canvas, resultRef.current);
+    requestAnimationFrame(() => {
+      detectFrame(video, model, canvas);
+    });
+  };
+
+  const onCanvasClick = (event: MouseEvent) => {
+    const canvasCoords = {
+      x: event.offsetX,
+      y: event.offsetY,
+    };
+    const canvasSize = {
+      width: canvasRef.current.clientWidth,
+      height: canvasRef.current.clientHeight,
+    };
+    const imageSize = {
+      width: canvasRef.current.width,
+      height: canvasRef.current.height,
+    };
+    const imageCoords = canvasToImageCoords(canvasCoords, canvasSize, imageSize);
+
+    const clickedObjects = resultRef.current.filter((result) => coordsInBox(imageCoords, result.bndBox));
+
+    if (clickedObjects.length > 0) {
+      // Since results are ordered by confidence, we should take the first result to be the one the user wanted to click
+      const clickedObject = clickedObjects[0];
+      const classInfo = wasteClassMap[clickedObject.class];
+
+      setMessage(`This seems to be a ${capitalizeString(clickedObject.class)}. ${classInfo.info}`);
+      setTimeout(() => {
+        setMessage('');
+      }, 8000);
+    }
+  };
+
   return (
-    <div className="app">
-      <header className="flex">
-        <Logo width="75" height="75" />
-        <h1>Welcome to mull-recognition!</h1>
-      </header>
-      <main>
-        <h2>Resources &amp; Tools</h2>
-        <p>Thank you for using and showing some ♥ for Nx.</p>
-        <div className="flex github-star-container">
-          <a href="https://github.com/nrwl/nx" target="_blank" rel="noopener noreferrer">
-            {' '}
-            If you like Nx, please give it a star:
-            <div className="github-star-badge">
-              <img src={star} className="material-icons" alt="" />
-              Star
-            </div>
-          </a>
+    <div className="app-container">
+      <header>
+        <div className="app-title">Welcome to Mull Recognition!</div>
+        <div className="app-description">
+          Point at objects with your camera! If the model recognizes something (bottle, can, ...), you'll see
+          an icon you can press!
         </div>
-        <p>Here are some links to help you get started.</p>
-        <ul className="resources">
-          <li className="col-span-2">
-            <a
-              className="resource flex"
-              href="https://egghead.io/playlists/scale-react-development-with-nx-4038"
-            >
-              Scale React Development with Nx (Course)
-            </a>
-          </li>
-          <li className="col-span-2">
-            <a className="resource flex" href="https://nx.dev/latest/react/tutorial/01-create-application">
-              Interactive tutorial
-            </a>
-          </li>
-          <li className="col-span-2">
-            <a className="resource flex" href="https://nx.app/">
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 120 120"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M120 15V30C103.44 30 90 43.44 90 60C90 76.56 76.56 90 60 90C43.44 90 30 103.44 30 120H15C6.72 120 0 113.28 0 105V15C0 6.72 6.72 0 15 0H105C113.28 0 120 6.72 120 15Z"
-                  fill="#0E2039"
-                />
-                <path
-                  d="M120 30V105C120 113.28 113.28 120 105 120H30C30 103.44 43.44 90 60 90C76.56 90 90 76.56 90 60C90 43.44 103.44 30 120 30Z"
-                  fill="white"
-                />
-              </svg>
-              <span className="gutter-left">Nx Cloud</span>
-            </a>
-          </li>
-        </ul>
-        <h2>Next Steps</h2>
-        <p>Here are some things you can do with Nx.</p>
-        <details open>
-          <summary>Add UI library</summary>
-          <pre>{`# Generate UI lib
-nx g @nrwl/react:lib ui
+      </header>
+      <div className="mull-recognition-container">
+        <video ref={videoRef} className="mull-recognition-overlap" playsInline muted />
+        <canvas ref={canvasRef} className="mull-recognition-overlap" />
+      </div>
 
-# Add a component
-nx g @nrwl/react:component xyz --project ui`}</pre>
-        </details>
-        <details>
-          <summary>View dependency graph</summary>
-          <pre>{`nx dep-graph`}</pre>
-        </details>
-        <details>
-          <summary>Run affected commands</summary>
-          <pre>{`# see what's been affected by changes
-nx affected:dep-graph
-
-# run tests for current changes
-nx affected:test
-
-# run e2e tests for current changes
-nx affected:e2e
-  `}</pre>
-        </details>
-      </main>
+      <div className="mull-recognition-overlay-text" onClick={() => setMessage('')}>
+        {message}
+      </div>
     </div>
   );
 }
