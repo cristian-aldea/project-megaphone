@@ -26,10 +26,6 @@
     "megaphone-ui": {
       "tags": []
     },
-    "megaphone-ui-e2e": {
-      "tags": [],
-      "implicitDependencies": ["megaphone-ui"]
-    },
     "types": {
       "tags": []
     },
