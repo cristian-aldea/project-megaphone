@@ -5,7 +5,7 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "parserOptions": {
-        "project": ["apps/megaphone-ui/tsconfig.*?.json"]
+        "project": ["apps/mull-recognition/tsconfig.*?.json"]
       },
       "rules": {}
     },

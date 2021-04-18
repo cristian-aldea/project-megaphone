@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('./assets/fonts/RobotoMono/RobotoMono-VariableFont_wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('./assets/fonts/RobotoMono/RobotoMono-Italic-VariableFont_wght.ttf') format('truetype');
+  font-style: italic;
+}
+
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+  background-color: #353535;
+  color: #ebebeb;
+
+  font-size: 16px;
+  font-family: 'Roboto Mono', Courier, monospace;
+}

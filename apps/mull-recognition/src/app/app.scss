@@ -1,0 +1,53 @@
+@import '../variables.scss';
+
+.app-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.mull-recognition-container {
+  position: relative;
+  flex: 1;
+}
+
+.mull-recognition-overlap {
+  position: absolute;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  z-index: 1;
+}
+
+.mull-recognition-overlay-text {
+  font-size: smaller;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  flex-basis: 4rem;
+}
+
+header {
+  padding: 0.5rem;
+}
+
+.app-title {
+  text-align: center;
+}
+
+.app-description {
+  text-align: center;
+  font-size: small;
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .mull-recognition-overlay-text {
+    font-size: medium;
+    flex-basis: 3rem;
+  }
+}
