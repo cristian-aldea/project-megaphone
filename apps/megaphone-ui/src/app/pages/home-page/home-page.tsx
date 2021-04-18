@@ -5,6 +5,8 @@ import './home-page.scss';
 /* eslint-disable-next-line */
 export interface HomePageProps {}
 
+const HOME_MESSAGES = ['websites', 'software', 'solutions', 'games sometimes', 'cool stuff B)'];
+
 export function HomePage(props: HomePageProps) {
   return (
     <>
@@ -13,8 +15,7 @@ export function HomePage(props: HomePageProps) {
           <div className="home-page-subtext">
             <div>I'm Cristian Aldea</div>
             <div>
-              <div className="inline">I build</div>
-              <TypingText messages={[' websites', ' software', ' solutions', ' what you need']} loop={true} />
+              <div className="inline">I build</div> <TypingText messages={HOME_MESSAGES} loop={true} />
             </div>
           </div>
         </div>

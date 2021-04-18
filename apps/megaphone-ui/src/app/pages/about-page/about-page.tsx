@@ -11,9 +11,12 @@ export function AboutPage(props: AboutPageProps) {
         <div className="page-title">About Me</div>
         <div className="about-page-info">
           <img src="assets/images/profile-pic.jpg" className="about-page-picture" alt="Cristian Aldea" />
-          <p>Hello! I'm currently a last-year Software Engineering student at Concordia.</p>
           <p>
-            I enjoy working on everything software. I have practical experience in full-stack development,
+            Hello! I'm currently a Cloud Engineer over at SAP, and a last-year Software Engineering student at
+            Concordia.
+          </p>
+          <p>
+            I enjoy working on many things software. I have practical experience in full-stack development,
             machine learning and cloud-native technologies, among other things.
           </p>
           <p>

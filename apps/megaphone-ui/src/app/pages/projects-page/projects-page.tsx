@@ -11,20 +11,25 @@ export function ProjectsPage(props: ProjectsPageProps) {
   const projects: IProject[] = [
     {
       name: 'Project Megaphone',
-      description: "I'm putting my public web apps and tools here, including the website you're on!",
+      description: "The code for my public websites will be available here, including the one you're on!",
       url: 'https://github.com/cristian-aldea/project-megaphone',
       imageUrl: 'assets/images/github.jpg',
     },
     {
+      name: 'Mull Recognition',
+      description: 'A standalone version of the waste recognition ML feature from my capstone project, Mull!',
+      url: 'https://mull-recognition.netlify.app/',
+      imageUrl: 'assets/images/c.png',
+    },
+    {
       name: 'Auto Made It',
-      description:
-        'I put various utilities and scripts I made to make them accessible to anyone, on any system.',
+      description: "Various utilities and scripts I've made available to anyone, on any system.",
       url: 'https://github.com/cristian-aldea/auto-made-it',
       imageUrl: 'assets/images/github.jpg',
     },
     {
       name: 'Risky Warfare',
-      description: 'A small game I developed in C++ based on the game Risk.',
+      description: 'A C++ game based on the game Risk.',
       url: 'https://github.com/cristian-aldea/risky-warfare',
       imageUrl: 'assets/images/github.jpg',
     },
