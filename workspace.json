@@ -119,7 +119,7 @@
             "main": "apps/mull-recognition/src/main.tsx",
             "polyfills": "apps/mull-recognition/src/polyfills.ts",
             "tsConfig": "apps/mull-recognition/tsconfig.app.json",
-            "assets": ["apps/mull-recognition/src/favicon.ico", "apps/mull-recognition/src/assets"],
+            "assets": ["apps/mull-recognition/src/favicon.png", "apps/mull-recognition/src/assets"],
             "styles": ["apps/mull-recognition/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
