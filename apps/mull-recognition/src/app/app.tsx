@@ -1,4 +1,4 @@
-import { DetectionResult } from '@project-megaphone/types';
+import { DetectionResult, wasteClasses } from '@project-megaphone/types';
 import { useEffect, useRef, useState } from 'react';
 import './app.scss';
 import { MULL_MODEL_URL, wasteClassMap } from './constants';
@@ -13,6 +13,7 @@ export function App() {
   const resultRef = useRef<DetectionResult[]>([]);
 
   const [message, setMessage] = useState<string>('');
+  const loading = useRef<boolean>(true);
 
   useEffect(() => {
     setup();
@@ -55,8 +56,6 @@ export function App() {
     }
 
     detectFrame(videoRef.current, modelRef.current, canvasRef.current);
-
-    setMessage('');
   };
 
   const setupCamera = async () => {
@@ -112,6 +111,11 @@ export function App() {
     // TODO adjust numResults/threshold to filter out bad results better. Might need to be dynamic
     resultRef.current = await model.detect(video, { numResults: 10, threshold: 0.6 });
 
+    if (loading.current) {
+      setMessage('');
+      loading.current = false;
+    }
+
     drawDetectionIcons(canvas, resultRef.current);
     requestAnimationFrame(() => {
       detectFrame(video, model, canvas);
@@ -151,10 +155,8 @@ export function App() {
     <div className="app-container">
       <header>
         <div className="app-title">Welcome to Mull Recognition!</div>
-        <div className="app-description">
-          Point at objects with your camera! If the model recognizes something (bottle, can, ...), you'll see
-          an icon you can press!
-        </div>
+        <div className="app-description">Analyze objects and press on icons for more info!</div>
+        <div className="app-description">Supported objects: {wasteClasses.join(', ')}</div>
       </header>
       <div className="mull-recognition-container">
         <video ref={videoRef} className="mull-recognition-overlap" playsInline muted />

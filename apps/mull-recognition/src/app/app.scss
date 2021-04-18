@@ -24,7 +24,7 @@
 }
 
 .mull-recognition-overlay-text {
-  font-size: 0.75rem;
+  font-size: smaller;
   color: white;
   padding: 0.5rem;
   text-align: center;
@@ -33,21 +33,21 @@
 }
 
 header {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .app-title {
   text-align: center;
-  font-size: larger;
 }
 
 .app-description {
   text-align: center;
+  font-size: small;
 }
 
 @media (min-width: $mobile-breakpoint) {
   .mull-recognition-overlay-text {
-    font-size: 1rem;
+    font-size: medium;
     flex-basis: 3rem;
   }
 }
