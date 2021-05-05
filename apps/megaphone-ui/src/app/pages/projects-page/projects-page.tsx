@@ -22,6 +22,13 @@ export function ProjectsPage(props: ProjectsPageProps) {
       imageUrl: 'assets/images/c.png',
     },
     {
+      name: 'MMM Bot',
+      description:
+        "A Discord bot for my Minecraft Server. It pings the server and alerts me when it's no longer responding.",
+      url: 'https://github.com/cristian-aldea/mmm-bot',
+      imageUrl: 'assets/images/github.jpg',
+    },
+    {
       name: 'Auto Made It',
       description: "Various utilities and scripts I've made available to anyone, on any system.",
       url: 'https://github.com/cristian-aldea/auto-made-it',

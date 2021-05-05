@@ -12,7 +12,7 @@ export function AboutPage(props: AboutPageProps) {
         <div className="about-page-info">
           <img src="assets/images/profile-pic.jpg" className="about-page-picture" alt="Cristian Aldea" />
           <p>
-            Hello! I'm currently a Cloud Engineer over at SAP, and a last-year Software Engineering student at
+            Hello! I'm currently a Cloud Engineer over at SAP, and a Software Engineering graduate student at
             Concordia.
           </p>
           <p>
@@ -24,7 +24,9 @@ export function AboutPage(props: AboutPageProps) {
             project.
           </p>
         </div>
-        <p className="about-page-quote">"Today is a gift, that is why we call it the Present."</p>
+        <p className="about-page-quote">
+          <em>"Today is a gift, that is why we call it the Present."</em>
+        </p>
       </div>
     </div>
   );
