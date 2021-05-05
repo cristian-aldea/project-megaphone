@@ -166,6 +166,7 @@ export function App() {
       <div className="mull-recognition-overlay-text" onClick={() => setMessage('')}>
         {message}
       </div>
+      <footer>&copy; Copyright 2021, Cristian Aldea</footer>
     </div>
   );
 }

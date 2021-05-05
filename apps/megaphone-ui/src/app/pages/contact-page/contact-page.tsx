@@ -47,7 +47,7 @@ export function ContactPage(props: ContactPageProps) {
           ))}
         </div>
       </div>
-      <div className="footer">&copy; Copyright 2021, Cristian Aldea</div>
+      <footer>&copy; Copyright 2021, Cristian Aldea</footer>
     </div>
   );
 }
