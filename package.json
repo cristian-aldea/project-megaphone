@@ -1,5 +1,5 @@
 {
-  "name": "web-toolbox",
+  "name": "project-megaphone",
   "scripts": {
     "step-clean": "recursive-delete dist",
     "step-js-dev": "rollup --config rollup.config.dev.js",

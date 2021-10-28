@@ -1,8 +1,8 @@
-export function throttle(func: Function, limit = 300) {
+export function throttle(func: () => void, limit = 300) {
   var waiting = false;
-  return function () {
+  return (...args) => {
     if (!waiting) {
-      func.apply(this, arguments);
+      func.apply(this, args);
       waiting = true;
       setTimeout(function () {
         waiting = false;
@@ -11,7 +11,7 @@ export function throttle(func: Function, limit = 300) {
   };
 }
 
-export function debounce(func: Function, timeout = 300) {
+export function debounce(func: () => void, timeout = 300) {
   let timer;
   return (...args) => {
     clearTimeout(timer);
