@@ -30,8 +30,7 @@ let charIndex = 0,
 let editing = false;
 let stopEditTimestamp: number = null;
 
-let className = "",
-  loop = true,
+const loop = true,
   initWait = 0,
   blinkWait = 500,
   speed = 1,
@@ -53,7 +52,7 @@ const setText = (value: string) => {
 
 const animateBlinker = async () => {
   while (repeat) {
-    let elapsed: number = stopEditTimestamp ? performance.now() - stopEditTimestamp : null;
+    const elapsed: number = stopEditTimestamp ? performance.now() - stopEditTimestamp : null;
     if (elapsed && elapsed < blinkWait) {
       await sleep(blinkWait - elapsed);
       stopEditTimestamp = null;
@@ -83,7 +82,7 @@ const setEditing = (curr: boolean) => {
 };
 
 const nextBlinker = (): number => {
-  let wait = blinkWait;
+  const wait = blinkWait;
   if (editing) {
     setShowCursor(true);
   } else {

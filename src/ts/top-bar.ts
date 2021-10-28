@@ -5,7 +5,6 @@ import { debounce } from "./utils";
 
 let menuOpen = false;
 let currPage: Page = null;
-let animate = true;
 
 const setCurrPage = (page: Page) => {
   currPage = page;
@@ -32,7 +31,6 @@ const setMenuOpen = (value: boolean) => {
 };
 
 const setAnimate = (value: boolean) => {
-  animate = value;
   if (value) {
     topBarButtons.classList.add("animate");
     topBarSlider.classList.add("animate");
@@ -59,14 +57,14 @@ const turnOnAnims = debounce(() => {
   setAnimate(true);
 }, 400);
 
-const onResize = (event: UIEvent) => {
+const onResize = () => {
   setMenuOpen(false);
   setAnimate(false);
   turnOnAnims();
   setSliderPos(pageMap[currPage].buttonRef);
 };
 
-const onScroll = (event: Event) => {
+const onScroll = () => {
   findActiveOption();
 };
 

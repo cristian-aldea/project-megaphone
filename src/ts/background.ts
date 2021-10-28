@@ -28,11 +28,11 @@ const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
 bgGradient.addColorStop(0, bgc1);
 bgGradient.addColorStop(0.7, bgc2);
 
-const onResize = (ev: UIEvent) => {
+const onResize = () => {
   resizeCanvas();
 };
 
-const onScroll = (ev: Event) => {
+const onScroll = () => {
   const dpi = window.devicePixelRatio;
   const o = scroll - document.documentElement.scrollTop;
   offset += (o * dpi) / (bgCanvas.height * 3);
@@ -45,7 +45,7 @@ const resizeCanvas = () => {
   bgCanvas.width = dpi * window.innerWidth;
   bgCanvas.height = dpi * window.innerHeight;
 
-  let size = 0.012 * Math.sqrt(bgCanvas.width * bgCanvas.height);
+  const size = 0.012 * Math.sqrt(bgCanvas.width * bgCanvas.height);
   lineWidth = size;
   radius = size;
 };
@@ -95,9 +95,9 @@ const draw = (t: number) => {
   ctx.fillStyle = pointColor;
   for (let i = 0; i < points.length - 1; i++) {
     for (let j = i + 1; j < points.length; j++) {
-      let x1 = points[i].x;
+      const x1 = points[i].x;
       let x2 = points[j].x;
-      let y1 = points[i].y;
+      const y1 = points[i].y;
       let y2 = points[j].y;
 
       let dx = x1 - x2;
