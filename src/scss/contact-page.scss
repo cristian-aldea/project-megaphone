@@ -1,4 +1,4 @@
-.contact-page-container {
+.contact-page {
   position: relative;
 }
 
@@ -19,8 +19,7 @@
   @include button-like($bg-color-2-transparent);
 }
 
-.contact-page-image {
-  fill: $main-color;
+.contact-page-icon {
   width: 3rem;
   height: 3rem;
 }
@@ -41,7 +40,7 @@ footer {
     flex-direction: row;
   }
 
-  .contact-page-image {
+  .contact-page-icon {
     width: 5rem;
     height: 5rem;
   }

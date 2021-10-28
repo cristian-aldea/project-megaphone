@@ -1,4 +1,4 @@
-.project-card-container {
+.project-card {
   overflow: auto;
 
   border-radius: 10px;
@@ -38,6 +38,12 @@
   width: 100%;
 
   @include button-like($bg-color-3-transparent);
+}
+
+.skill-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin: 0.1rem;
 }
 
 @media (min-width: $mobile-breakpoint) {

@@ -1,13 +1,15 @@
 // global dependencies
 @import "./_keyframes";
-@import "./variables";
-@import "./mixins";
+@import "./_variables";
+@import "./_mixins";
 
 // partials
 @import "./top-bar";
 @import "./project-card";
 @import "./about-page";
 @import "./contact-page";
+@import "./home-page";
+@import "./projects-page";
 
 // CSS Reset
 
@@ -93,7 +95,7 @@ i {
   display: inline;
 }
 
-.section-container {
+.section {
   background: transparent;
   display: inline-block;
   box-sizing: border-box;
@@ -107,12 +109,6 @@ i {
   font-size: 3rem;
   text-align: center;
   margin-top: 0.5rem;
-}
-
-.skill-icon {
-  width: 2rem;
-  height: 2rem;
-  margin: 0.3rem;
 }
 
 .cmake-icon {
@@ -163,7 +159,7 @@ i {
   fill: $ts-color;
 }
 
-.app-container {
+.app {
   background: transparent;
 }
 
@@ -196,7 +192,7 @@ i {
     font-size: 1.25rem;
   }
 
-  .section-container {
+  .section {
     width: $mobile-breakpoint;
   }
   .section-title {
@@ -206,7 +202,7 @@ i {
 }
 
 @media (min-width: $tablet-breakpoint) {
-  .section-container {
+  .section {
     width: $tablet-breakpoint;
   }
   .section-title {

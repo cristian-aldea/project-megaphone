@@ -1,4 +1,4 @@
-.home-page-container {
+.home-page {
   font-size: 1.25rem;
 }
 
@@ -18,7 +18,7 @@
 }
 
 @media (min-width: $mobile-breakpoint) {
-  .home-page-container {
+  .home-page {
     font-size: 2rem;
   }
 }
