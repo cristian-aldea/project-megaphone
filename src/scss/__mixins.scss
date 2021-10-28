@@ -1,0 +1,17 @@
+@mixin instant-fadein() {
+  animation: fadein 1s ease backwards;
+}
+
+@mixin button-like($bg-color, $bg-color-hover: $bg-color) {
+  transition: background-color 1s $ease-out-quint;
+  background-color: $bg-color;
+
+  &:hover {
+    background-color: lighten($bg-color-hover, 10%);
+  }
+
+  &:active {
+    transition: none;
+    background-color: lighten($bg-color-hover, 20%);
+  }
+}

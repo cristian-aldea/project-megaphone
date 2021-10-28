@@ -1,0 +1,216 @@
+// global dependencies
+@import "./_keyframes";
+@import "./variables";
+@import "./mixins";
+
+// partials
+@import "./top-bar";
+@import "./project-card";
+@import "./about-page";
+@import "./contact-page";
+
+// CSS Reset
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+  color: inherit;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  font-weight: normal;
+  font-size: 16px;
+
+  color: $main-color;
+  background-color: black;
+
+  @extend .hide-scrollbar;
+  @include instant-fadein;
+}
+
+// Elements
+a,
+button {
+  cursor: pointer;
+}
+
+a {
+  color: $accent-color-1;
+  transition: color 1s $ease-out-quint;
+
+  &.plain-link {
+    color: $main-color;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $main-color;
+  }
+}
+
+h1 {
+  font-weight: bold;
+}
+
+p {
+  margin-top: 0.5em;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+// Classes
+.hide-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.inline {
+  display: inline;
+}
+
+.section-container {
+  background: transparent;
+  display: inline-block;
+  box-sizing: border-box;
+
+  min-height: max(#{$min-height}, 100vh);
+
+  padding: $top-bar-height 0.75rem 0;
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.skill-icon {
+  width: 2rem;
+  height: 2rem;
+  margin: 0.3rem;
+}
+
+.cmake-icon {
+  fill: $cmake-color;
+}
+
+.cpp-icon {
+  fill: $cpp-color;
+}
+
+.css-icon {
+  fill: $css-color;
+}
+
+.docker-icon {
+  fill: $docker-color;
+}
+
+.gh-icon {
+  fill: white;
+}
+
+.html-icon {
+  fill: $html5-color;
+}
+
+.javascript-icon {
+  fill: $js-color;
+}
+
+.kubernetes-icon {
+  fill: $k8s-color;
+}
+
+.python-icon {
+  fill: $python-color;
+}
+
+.scss-icon {
+  fill: $sass-color;
+}
+
+.tensorflow-icon {
+  fill: $tensorflow-color;
+}
+
+.typescript-icon {
+  fill: $ts-color;
+}
+
+.app-container {
+  background: transparent;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.background-canvas {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  z-index: -1;
+}
+
+.typing-text-cursor {
+  position: relative;
+  bottom: 0.1em;
+  right: 0.24em;
+}
+
+@media (min-width: $mobile-breakpoint) {
+  body {
+    font-size: 1.25rem;
+  }
+
+  .section-container {
+    width: $mobile-breakpoint;
+  }
+  .section-title {
+    font-size: 4rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .section-container {
+    width: $tablet-breakpoint;
+  }
+  .section-title {
+    font-size: 5rem;
+    margin-top: 2rem;
+  }
+}

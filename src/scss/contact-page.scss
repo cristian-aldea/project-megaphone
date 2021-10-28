@@ -1,0 +1,48 @@
+.contact-page-container {
+  position: relative;
+}
+
+.contact-page-entries {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-page-entry {
+  margin: 1rem;
+  padding: 2rem;
+
+  border-radius: 50%;
+
+  @include button-like($bg-color-2-transparent);
+}
+
+.contact-page-image {
+  fill: $main-color;
+  width: 3rem;
+  height: 3rem;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 1rem;
+  font-size: 0.75rem;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .contact-page-entries {
+    flex-direction: row;
+  }
+
+  .contact-page-image {
+    width: 5rem;
+    height: 5rem;
+  }
+}

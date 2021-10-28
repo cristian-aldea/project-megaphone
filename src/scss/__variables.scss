@@ -1,0 +1,48 @@
+// colors
+$bg-color-1: #101010;
+$bg-color-2: #181818;
+$bg-color-3: #202020;
+
+$bg-color-1-transparent: transparentize(
+  $color: $bg-color-1,
+  $amount: 0.2,
+);
+
+$bg-color-2-transparent: transparentize(
+  $color: $bg-color-2,
+  $amount: 0.2,
+);
+
+$bg-color-3-transparent: transparentize(
+  $color: $bg-color-3,
+  $amount: 0.2,
+);
+
+$main-color: white;
+$accent-color-1: #33bbff;
+$accent-color-2: #3333ff;
+
+$android-color: #3ddc84;
+$cmake-color: #064f8c;
+$cpp-color: #00599c;
+$css-color: #1572b6;
+$docker-color: #2496ed;
+$html5-color: #e34f26;
+$js-color: #f7df1e;
+$k8s-color: #326ce5;
+$sass-color: #cc6699;
+$shell-color: #4eaa25;
+$tensorflow-color: #ff6f00;
+$ts-color: #3178c6;
+$python-color: #3776ab;
+
+// sizes
+$top-bar-height: 5rem;
+$min-height: 850px;
+
+// breakpoints
+$mobile-breakpoint: 640px;
+$tablet-breakpoint: 1024px;
+
+// timing functions
+$ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);

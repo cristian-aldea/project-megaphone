@@ -1,0 +1,182 @@
+.top-bar-container {
+  display: flex;
+  position: fixed;
+
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $top-bar-height;
+
+  background-color: $bg-color-1-transparent;
+
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+}
+
+.top-bar-title {
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 100%;
+
+  font-size: 7vw;
+  font-weight: bold;
+
+  align-items: center;
+
+  @include button-like(rgba(0, 0, 0, 0), $bg-color-1-transparent);
+}
+
+.top-bar-burger-button {
+  margin-right: 1rem;
+}
+
+.top-bar-button-group {
+  display: flex;
+  position: fixed;
+  top: $top-bar-height;
+  right: 0;
+  left: 0;
+
+  background-color: $bg-color-1-transparent;
+
+  flex-direction: column;
+  align-items: stretch;
+  align-self: stretch;
+}
+
+.animate {
+  &.top-bar-menu-open {
+    transition: opacity 0.3s ease-out, visibility 0s;
+  }
+  &.top-bar-menu-closed {
+    transition: opacity 0.3s ease-out, visibility 0s 0.3s;
+  }
+  &.top-bar-slider {
+    transition: top 0.3s ease-out;
+  }
+}
+
+.top-bar-menu-closed {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.top-bar-menu-open {
+  opacity: 100%;
+  visibility: visible;
+}
+
+.top-bar-slider {
+  position: absolute;
+
+  height: $top-bar-height;
+
+  background-color: $main-color;
+
+  z-index: 1;
+
+  cursor: pointer;
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .top-bar-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .top-bar-button-group {
+    display: flex;
+    position: relative;
+    top: 0;
+
+    background-color: transparent;
+
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .top-bar-menu-closed {
+    opacity: 100%;
+    visibility: visible;
+  }
+
+  .top-bar-burger-button {
+    display: none;
+  }
+
+  .animate {
+    &.top-bar-slider {
+      transition-property: width, left, top;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
+  }
+}
+
+// hamburger button
+.hamburger-button-container {
+  background-color: transparent;
+  border-radius: 50px;
+  outline: none;
+
+  padding: 5px;
+  box-sizing: border-box;
+  width: 3.5rem;
+  height: 3.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hamburger-button-line {
+  height: 5px;
+  width: 100%;
+  background-color: $main-color;
+  border-radius: 5px;
+
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger-button-activated {
+  .hamburger-button-top {
+    transform: translateY(1rem) rotate(45deg);
+  }
+
+  .hamburger-button-middle {
+    opacity: 0;
+  }
+
+  .hamburger-button-bottom {
+    transform: translateY(-1rem) rotate(-45deg);
+  }
+}
+
+// top bar button
+
+.top-bar-button-container {
+  display: flex;
+  position: relative;
+
+  font-size: 2rem;
+  padding: 0rem 1rem;
+  height: $top-bar-height;
+
+  align-items: center;
+  justify-content: center;
+
+  @include button-like(rgba(0, 0, 0, 0), $bg-color-1-transparent);
+}
+
+.top-bar-button-content {
+  position: relative;
+  z-index: 2;
+}
+
+.top-bar-button-active {
+  color: $bg-color-1 !important;
+}

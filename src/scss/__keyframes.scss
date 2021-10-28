@@ -1,0 +1,18 @@
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadein-moveup {
+  0% {
+    transform: translate(0, 1rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

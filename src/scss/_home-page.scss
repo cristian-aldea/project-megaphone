@@ -1,0 +1,24 @@
+.home-page-container {
+  font-size: 1.25rem;
+}
+
+.home-page-title {
+  opacity: 0;
+  animation: fadein-moveup 1s $ease-out-quint forwards;
+}
+
+.home-page-line-1 {
+  opacity: 0;
+  animation: fadein-moveup 1s $ease-out-quint 1s forwards;
+}
+
+.home-page-line-2 {
+  opacity: 0;
+  animation: fadein-moveup 1s $ease-out-quint 1.5s forwards;
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .home-page-container {
+    font-size: 2rem;
+  }
+}
