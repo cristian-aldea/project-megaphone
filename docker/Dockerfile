@@ -1,4 +1,4 @@
-FROM node:16 as build
+FROM node:17 as build
 
 COPY ./ /project-megaphone
 
@@ -10,5 +10,4 @@ RUN npm run build-prod
 FROM nginx:stable-alpine
 
 COPY --from=build /project-megaphone/dist/ /usr/share/nginx/html
-
 COPY docker/nginx.conf /etc/nginx/nginx.conf
