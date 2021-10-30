@@ -52,7 +52,7 @@ const setText = (value: string) => {
 
 const animateBlinker = async () => {
   while (repeat) {
-    const elapsed: number = stopEditTimestamp ? performance.now() - stopEditTimestamp : null;
+    const elapsed = stopEditTimestamp ? performance.now() - stopEditTimestamp : null;
     if (elapsed && elapsed < blinkWait) {
       await sleep(blinkWait - elapsed);
       stopEditTimestamp = null;

@@ -36,7 +36,7 @@ body {
   background-color: black;
 
   @extend .hide-scrollbar;
-  @include instant-fadein;
+  animation: fadein 1s ease backwards;
 }
 
 // Elements
@@ -46,8 +46,7 @@ button {
 }
 
 a {
-  color: $accent-color-1;
-  transition: color 1s $ease-out-quint;
+  transition: color $anim-duration $easing-function;
 
   &.plain-link {
     color: $main-color;
@@ -109,58 +108,6 @@ i {
   font-size: 3rem;
   text-align: center;
   margin-top: 0.5rem;
-}
-
-.cmake-icon {
-  fill: $cmake-color;
-}
-
-.cpp-icon {
-  fill: $cpp-color;
-}
-
-.css-icon {
-  fill: $css-color;
-}
-
-.docker-icon {
-  fill: $docker-color;
-}
-
-.gh-icon {
-  fill: white;
-}
-
-.html-icon {
-  fill: $html5-color;
-}
-
-.javascript-icon {
-  fill: $js-color;
-}
-
-.kubernetes-icon {
-  fill: $k8s-color;
-}
-
-.python-icon {
-  fill: $python-color;
-}
-
-.scss-icon {
-  fill: $sass-color;
-}
-
-.tensorflow-icon {
-  fill: $tensorflow-color;
-}
-
-.typescript-icon {
-  fill: $ts-color;
-}
-
-.app {
-  background: transparent;
 }
 
 .app-content {

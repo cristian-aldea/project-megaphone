@@ -47,13 +47,13 @@
 
 .animate {
   &#top-bar-buttons {
-    transition: opacity 0.3s ease-out, visibility 0s;
+    transition: opacity 0.3s $easing-function, visibility 0s;
   }
   &#top-bar-buttons.closed {
-    transition: opacity 0.3s ease-out, visibility 0s 0.3s;
+    transition: opacity 0.3s $easing-function, visibility 0s 0.3s;
   }
   &.top-bar-slider {
-    transition: top 0.3s ease-out;
+    transition: top 0.3s $easing-function;
   }
 }
 
@@ -101,7 +101,7 @@
     &.top-bar-slider {
       transition-property: width, left, top;
       transition-duration: 0.3s;
-      transition-timing-function: ease-out;
+      transition-timing-function: $easing-function;
     }
   }
 }

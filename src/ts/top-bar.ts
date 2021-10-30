@@ -40,11 +40,11 @@ const setAnimate = (value: boolean) => {
   }
 };
 
-const setSliderPos = (ref: HTMLElement) => {
-  const rect = ref.getBoundingClientRect();
+const setSliderPos = (button: HTMLButtonElement) => {
+  const rect = button.getBoundingClientRect();
   topBarSlider.style.width = rect.width + "px";
-  topBarSlider.style.top = ref.offsetTop + "px";
-  topBarSlider.style.left = ref.offsetLeft + "px";
+  topBarSlider.style.top = button.offsetTop + "px";
+  topBarSlider.style.left = button.offsetLeft + "px";
 };
 
 const onClick = (event: MouseEvent) => {

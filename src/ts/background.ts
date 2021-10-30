@@ -133,32 +133,34 @@ const draw = (t: number) => {
 
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance <= connectThreshold) {
-        const x = distance / connectThreshold;
-        // const strength = 1;
-        const strength = 1 - x * x;
-        // const strength = 1 - x;
-        // const strength = Math.exp(-2 * x) - 0.14 * x;
-        // const strength = 1 - Math.sqrt(x);
-        ctx.lineWidth = lineWidth * strength;
-        ctx.beginPath();
-        ctx.moveTo(x1 * width, y1 * height);
-        ctx.lineTo(x2 * width, y2 * height);
-
-        if (wrapX !== 0 && wrapY !== 0) {
-          ctx.moveTo((x1 + wrapX) * width, (y1 + wrapY) * height);
-          ctx.lineTo((x2 + wrapX) * width, (y2 + wrapY) * height);
-        }
-        if (wrapX !== 0) {
-          ctx.moveTo((x1 + wrapX) * width, y1 * height);
-          ctx.lineTo((x2 + wrapX) * width, y2 * height);
-        }
-        if (wrapY !== 0) {
-          ctx.moveTo(x1 * width, (y1 + wrapY) * height);
-          ctx.lineTo(x2 * width, (y2 + wrapY) * height);
-        }
-        ctx.stroke();
+      if (distance > connectThreshold) {
+        continue;
       }
+
+      const x = distance / connectThreshold;
+      // const strength = 1;
+      const strength = 1 - x * x;
+      // const strength = 1 - x;
+      // const strength = Math.exp(-2 * x) - 0.14 * x;
+      // const strength = 1 - Math.sqrt(x);
+      ctx.lineWidth = lineWidth * strength;
+      ctx.beginPath();
+      ctx.moveTo(x1 * width, y1 * height);
+      ctx.lineTo(x2 * width, y2 * height);
+
+      if (wrapX !== 0 && wrapY !== 0) {
+        ctx.moveTo((x1 + wrapX) * width, (y1 + wrapY) * height);
+        ctx.lineTo((x2 + wrapX) * width, (y2 + wrapY) * height);
+      }
+      if (wrapX !== 0) {
+        ctx.moveTo((x1 + wrapX) * width, y1 * height);
+        ctx.lineTo((x2 + wrapX) * width, y2 * height);
+      }
+      if (wrapY !== 0) {
+        ctx.moveTo(x1 * width, (y1 + wrapY) * height);
+        ctx.lineTo(x2 * width, (y2 + wrapY) * height);
+      }
+      ctx.stroke();
     }
   }
 
