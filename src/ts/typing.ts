@@ -31,7 +31,7 @@ let editing = false;
 let stopEditTimestamp: number = null;
 
 const loop = true,
-  initWait = 0,
+  initWait = 1500,
   blinkWait = 500,
   speed = 1,
   typeWait = 100 / speed,

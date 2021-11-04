@@ -47,11 +47,8 @@ button {
 
 a {
   transition: color $anim-duration $easing-function;
-
-  &.plain-link {
-    color: $main-color;
-    text-decoration: none;
-  }
+  color: inherit;
+  text-decoration: none;
 
   &:hover {
     color: $main-color;
