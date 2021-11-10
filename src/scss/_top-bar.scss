@@ -53,7 +53,9 @@
     transition: opacity 0.3s $easing-function, visibility 0s 0.3s;
   }
   &.top-bar-slider {
-    transition: top 0.3s $easing-function;
+    transition-property: width, top;
+    transition-duration: 0.3s;
+    transition-timing-function: $easing-function;
   }
 }
 
@@ -99,7 +101,7 @@
 
   .animate {
     &.top-bar-slider {
-      transition-property: width, left, top;
+      transition-property: width, left;
       transition-duration: 0.3s;
       transition-timing-function: $easing-function;
     }

@@ -95,10 +95,6 @@ const findActiveOption = () => {
   }
 };
 
-window.addEventListener("mousedown", onClick);
-window.addEventListener("resize", onResize);
-window.addEventListener("scroll", onScroll);
-
 pages.forEach((page) => {
   pageMap[page].buttonRef.addEventListener("click", () => {
     setMenuOpen(false);
@@ -110,4 +106,9 @@ topBarTitle.addEventListener("click", () => pageMap.Home.ref.scrollIntoView());
 
 hamburgerButton.addEventListener("click", () => setMenuOpen(!menuOpen));
 
-findActiveOption();
+window.addEventListener("load", () => {
+  findActiveOption();
+  window.addEventListener("mousedown", onClick);
+  window.addEventListener("resize", onResize);
+  window.addEventListener("scroll", onScroll);
+});

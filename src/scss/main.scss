@@ -35,8 +35,13 @@ body {
   color: $main-color;
   background-color: black;
 
-  @extend .hide-scrollbar;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
   animation: fadein 1s ease backwards;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 // Elements
@@ -69,15 +74,6 @@ i {
 }
 
 // Classes
-.hide-scrollbar {
-  -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
