@@ -4,7 +4,7 @@ import { Project } from "./types";
 const projects: Project[] = [
   {
     name: "Project Megaphone",
-    description: "My main website. You're on it right now!",
+    description: "My main website, that you're on it right now!",
     image: "svg/c-logo.svg",
     url: "https://www.cristianaldea.com",
     sourceUrl: "https://github.com/cristian-aldea/project-megaphone",
@@ -12,7 +12,7 @@ const projects: Project[] = [
   },
   {
     name: "Starlog",
-    description: "My blog, with polished posts about my discoveries!",
+    description: "A blog to teach about various topics!",
     image: "svg/c-logo.svg",
     url: "https://blog.cristianaldea.com",
     sourceUrl: "https://github.com/cristian-aldea/starlog",
@@ -23,11 +23,11 @@ const projects: Project[] = [
     description: "Create polls quickly and easily!",
     image: "svg/c-logo.svg",
     url: "https://voteit.cristianaldea.com",
-    tags: ["mongodb", "expressjs", "reactjs", "nodejs"],
+    tags: ["mongodb", "expressjs", "reactjs", "nodejs", "docker"],
   },
   {
     name: "Mull Recognition",
-    description: "A real-time ML object recognition tool for waste!",
+    description: "A real-time ML object recognition app for waste!",
     image: "svg/c-logo.svg",
     url: "https://www.cristianaldea.com/mull-recognition",
     sourceUrl: "https://github.com/cristian-aldea/mull-recognition",
@@ -52,7 +52,7 @@ const projects: Project[] = [
     description: "Various utilities and scripts made available to anyone, on any system",
     image: "svg/github.svg",
     sourceUrl: "https://github.com/cristian-aldea/auto-made-it",
-    tags: ["python"],
+    tags: ["python", "bash", "powershell"],
   },
 ];
 

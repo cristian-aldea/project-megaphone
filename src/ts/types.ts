@@ -1,7 +1,7 @@
 import { pages } from "./constants";
 
 export type IconType =
-  | "android"
+  | "bash"
   | "cmake"
   | "cpp"
   | "css"
@@ -14,6 +14,7 @@ export type IconType =
   | "mongodb"
   | "nodejs"
   | "opengl"
+  | "powershell"
   | "python"
   | "reactjs"
   | "scss"
