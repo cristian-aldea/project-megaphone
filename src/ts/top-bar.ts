@@ -4,7 +4,7 @@ import { Page } from "./types";
 import { debounce } from "./utils";
 
 let menuOpen = false;
-let currPage: Page = null;
+let currPage: Page;
 
 const setCurrPage = (page: Page) => {
   currPage = page;
@@ -70,9 +70,10 @@ const onScroll = () => {
 
 const findActiveOption = () => {
   const wHeight = window.innerHeight;
+  const yMap: number[] = new Array(pages.length).fill(0);
 
-  pages.forEach((page) => {
-    pageMap[page].y = pageMap[page].ref.getBoundingClientRect().y;
+  pages.forEach((page, i) => {
+    yMap[i] = pageMap[page].ref.getBoundingClientRect().y;
   });
 
   const cutoff = 0.5 * wHeight;
@@ -83,9 +84,9 @@ const findActiveOption = () => {
     const last = i == pages.length - 1;
     if (
       page !== currPage &&
-      ((first && pageMap[pages[i + 1]].y > cutoff) ||
-        (last && pageMap[page].y < cutoff) ||
-        (pageMap[page].y < cutoff && pageMap[pages[i + 1]].y > cutoff))
+      ((first && yMap[i + 1] > cutoff) ||
+        (last && yMap[i] < cutoff) ||
+        (yMap[i] < cutoff && yMap[i + 1] > cutoff))
     ) {
       setCurrPage(page);
       setSliderPos(pageMap[pages[i]].buttonRef);

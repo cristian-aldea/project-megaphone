@@ -28,7 +28,7 @@ let charIndex = 0,
   repeat = true;
 
 let editing = false;
-let stopEditTimestamp: number = null;
+let stopEditTimestamp: number | null = null;
 
 const loop = true,
   initWait = 1500,

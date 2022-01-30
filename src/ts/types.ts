@@ -42,12 +42,10 @@ export type Page = typeof pages[number];
 
 export interface TopBarOption {
   title: string;
-  buttonText: string;
   id: string;
-  buttonId?: string;
+  buttonId: string;
   ref: HTMLDivElement;
-  buttonRef?: HTMLButtonElement;
-  y?: number;
+  buttonRef: HTMLButtonElement;
 }
 
 export interface Pauses {

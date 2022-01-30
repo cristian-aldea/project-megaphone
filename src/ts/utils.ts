@@ -1,6 +1,6 @@
 export function throttle(func: () => void, limit = 300) {
   var waiting = false;
-  return (...args) => {
+  return function (this: any, ...args: []) {
     if (!waiting) {
       func.apply(this, args);
       waiting = true;
@@ -12,8 +12,8 @@ export function throttle(func: () => void, limit = 300) {
 }
 
 export function debounce(func: () => void, timeout = 300) {
-  let timer;
-  return (...args) => {
+  let timer: NodeJS.Timeout;
+  return function (this: any, ...args: []) {
     clearTimeout(timer);
     timer = setTimeout(() => {
       func.apply(this, args);
