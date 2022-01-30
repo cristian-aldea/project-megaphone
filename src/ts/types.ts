@@ -6,22 +6,27 @@ export type IconType =
   | "cpp"
   | "css"
   | "docker"
+  | "expressjs"
   | "html"
+  | "hugo"
   | "javascript"
   | "kubernetes"
+  | "mongodb"
+  | "nodejs"
+  | "opengl"
   | "python"
+  | "reactjs"
   | "scss"
   | "shell"
   | "tensorflow"
   | "typescript";
 
 export interface Project {
-  title: string;
   name: string;
   description: string;
   image: string;
-  url: string;
-  sourceUrl: string;
+  url?: string;
+  sourceUrl?: string;
   tags: IconType[];
 }
 

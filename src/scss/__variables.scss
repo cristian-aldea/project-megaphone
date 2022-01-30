@@ -1,15 +1,15 @@
 // colors
-$bg-color-1: #161616;
-$bg-color-2: #222222;
+$bg-color-1: #151515;
+$bg-color-2: #303030;
 
 $bg-color-1-transparent: transparentize(
   $color: $bg-color-1,
-  $amount: 0.2,
+  $amount: 0.15,
 );
 
 $bg-color-2-transparent: transparentize(
   $color: $bg-color-2,
-  $amount: 0.2,
+  $amount: 0.15,
 );
 
 $main-color: white;
@@ -23,5 +23,5 @@ $mobile-breakpoint: 640px;
 $tablet-breakpoint: 1024px;
 
 // animation timing
-$easing-function: ease;
-$anim-duration: 0.5s;
+$easing-function: ease-out;
+$anim-duration: 0.3s;

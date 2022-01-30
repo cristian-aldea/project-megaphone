@@ -8,3 +8,5 @@ export const hamburgerButton = document.getElementById("hamburger-button") as HT
 
 export const typingText = document.getElementById("typing-text") as HTMLDivElement;
 export const typingCursor = document.getElementById("typing-cursor") as HTMLDivElement;
+
+export const projectsContainer = document.getElementById("projects-container") as HTMLDivElement;

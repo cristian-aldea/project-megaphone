@@ -17,6 +17,9 @@ import { Point } from "./types";
 
   const points: Point[] = [];
 
+  // Physics constants
+  const speed = 0.03;
+
   // Size constants
   const connectThreshold = 0.25;
   let lineWidth = 0;
@@ -64,8 +67,8 @@ import { Point } from "./types";
 
     const offSet = offset;
     points.forEach((p) => {
-      p.x += dt * p.dx;
-      p.y += dt * p.dy;
+      p.x += dt * p.dx * speed;
+      p.y += dt * p.dy * speed;
 
       if (offSet !== 0) {
         p.y += offSet;
@@ -150,6 +153,10 @@ import { Point } from "./types";
         // const strength = 1 - x;
         // const strength = Math.exp(-2 * x) - 0.14 * x;
         // const strength = 1 - Math.sqrt(x);
+        // TODO points are repelled by eachother
+        // bx += strength * strength * dx * repelStrength;
+        // by += strength * strength * dy * repelStrength;
+
         ctx.lineWidth = lineWidth * strength;
         ctx.beginPath();
         ctx.moveTo(x1 * width, y1 * height);
@@ -224,9 +231,8 @@ import { Point } from "./types";
     const y = Math.random();
 
     const angle = Math.random() * Math.PI * 2;
-    const speed = 0.03;
-    const dx = speed * Math.cos(angle);
-    const dy = speed * Math.sin(angle);
+    const dx = Math.cos(angle);
+    const dy = Math.sin(angle);
     points.push({ x, y, dx, dy });
   }
 
