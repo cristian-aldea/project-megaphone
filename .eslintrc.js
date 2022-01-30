@@ -12,6 +12,7 @@ module.exports = {
   plugins: ["@typescript-eslint"],
   rules: {
     "no-var": "off",
+    "@typescript-eslint/no-explicit-any": "off",
   },
   ignorePatterns: ["node_modules"],
 };
