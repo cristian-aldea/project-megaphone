@@ -29,7 +29,7 @@ const projects: Project[] = [
     name: "Mull Recognition",
     description: "A real-time ML object recognition app for waste!",
     image: "svg/c-logo.svg",
-    url: "https://www.cristianaldea.com/mull-recognition",
+    url: "https://mull.cristianaldea.com",
     sourceUrl: "https://github.com/cristian-aldea/mull-recognition",
     tags: ["html", "scss", "typescript", "tensorflow"],
   },
