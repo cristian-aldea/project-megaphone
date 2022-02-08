@@ -11,19 +11,12 @@ import { Point } from "./types";
     return;
   }
 
-  let time = 0;
-  let scroll = 0;
-  let offset = 0;
-
-  const points: Point[] = [];
-
   // Physics constants
   const speed = 0.03;
-
-  // Size constants
+  const numPoints = 25;
   const connectThreshold = 0.25;
-  let lineWidth = 0;
-  let radius = 0;
+  const dotSize = 0.012;
+  const scrollOffsetRatio = 3;
 
   // Color constants
   const hue = 0;
@@ -33,10 +26,16 @@ import { Point } from "./types";
   const lineColor = `hsl(${hue}, ${saturation}%, ${lightness * 0.6}%)`;
   const bgc1 = `hsl(${hue}, ${saturation}%, ${lightness * 0.5}%)`;
   const bgc2 = `hsl(${hue}, ${saturation}%, ${lightness * 0.15}%)`;
-
   const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
   bgGradient.addColorStop(0, bgc1);
   bgGradient.addColorStop(0.7, bgc2);
+
+  const points: Point[] = [];
+  let time = 0;
+  let scroll = 0;
+  let offset = 0;
+  let lineWidth = 0;
+  let radius = 0;
 
   const onResize = () => {
     resizeCanvas();
@@ -44,8 +43,8 @@ import { Point } from "./types";
 
   const onScroll = () => {
     const dpi = window.devicePixelRatio;
-    const o = scroll - document.documentElement.scrollTop;
-    offset += (o * dpi) / (canvas.height * 3);
+    const delta = scroll - document.documentElement.scrollTop;
+    offset += (delta * dpi) / (canvas.height * scrollOffsetRatio);
     scroll = document.documentElement.scrollTop;
   };
 
@@ -55,7 +54,7 @@ import { Point } from "./types";
     canvas.width = dpi * window.innerWidth;
     canvas.height = dpi * window.innerHeight;
 
-    const size = 0.012 * Math.sqrt(canvas.width * canvas.height);
+    const size = dotSize * Math.sqrt(canvas.width * canvas.height);
     lineWidth = size;
     radius = size;
   };
@@ -226,7 +225,7 @@ import { Point } from "./types";
   window.addEventListener("scroll", onScroll);
   resizeCanvas();
 
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < numPoints; i++) {
     const x = Math.random();
     const y = Math.random();
 

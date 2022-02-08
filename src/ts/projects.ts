@@ -4,7 +4,7 @@ import { Project } from "./types";
 const projects: Project[] = [
   {
     name: "Project Megaphone",
-    description: "My main website, that you're on it right now!",
+    description: "My main portfolio website. You're on it right now!",
     image: "svg/c-logo.svg",
     url: "https://www.cristianaldea.com",
     sourceUrl: "https://github.com/cristian-aldea/project-megaphone",
