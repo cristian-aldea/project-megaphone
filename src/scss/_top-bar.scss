@@ -41,7 +41,7 @@
   align-items: stretch;
   align-self: stretch;
 
-  opacity: 100%;
+  opacity: 1;
   visibility: visible;
 }
 
@@ -95,7 +95,7 @@
   }
 
   #top-bar-buttons.closed {
-    opacity: 100%;
+    opacity: 1;
     visibility: visible;
   }
 
@@ -156,7 +156,6 @@
 }
 
 // top bar button
-
 .top-bar-button {
   display: flex;
   position: relative;
