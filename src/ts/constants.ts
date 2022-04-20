@@ -1,26 +1,34 @@
-import { Page, TopBarOption } from "./types";
+import { Page } from "./types";
 
 export const pages = ["Home", "About", "Projects", "Contact"] as const;
+// export let pageNames: keyof typeof pages;
 
-const pageMapTemp: Record<Page, any> = {
-  Home: { title: "Welcome", id: "home-page" },
-  About: { title: "About Me", id: "about-page" },
-  Projects: { title: "Projects", id: "projects-page" },
-  Contact: { title: "Contact", id: "contact-page" },
+export interface PageInfo {
+  id: string;
+  buttonId: string;
+  ref: HTMLDivElement;
+  buttonRef: HTMLButtonElement;
+}
+
+const pageIdMap: Record<Page, string> = {
+  Home: "home-page",
+  About: "about-page",
+  Projects: "projects-page",
+  Contact: "contact-page",
 };
 
-export let pageNames: keyof typeof pages;
+const tempPageMap = new Map<Page, PageInfo>();
 
 pages.forEach((page) => {
-  const buttonId = pageMapTemp[page].id + "-button";
-  const entry = pageMapTemp[page];
-  entry.buttonId = buttonId;
-  entry.ref = document.getElementById(pageMapTemp[page].id) as HTMLDivElement;
-  entry.buttonRef = document.getElementById(buttonId) as HTMLButtonElement;
+  const id = pageIdMap[page];
+  const buttonId = id + "-button";
+  const buttonRef = document.getElementById(buttonId) as HTMLButtonElement;
+  const ref = document.getElementById(pageIdMap[page]) as HTMLDivElement;
 
-  if (!entry.buttonId || !entry.ref || !entry.buttonRef) {
+  if (!buttonId || !ref || !buttonRef) {
     console.error("constants - ERROR - failed to build pageMap");
   }
+  tempPageMap.set(page, { id: pageIdMap[page], buttonId, buttonRef, ref });
 });
 
-export const pageMap = pageMapTemp as Record<Page, TopBarOption>;
+export const pageMap = Object.fromEntries(tempPageMap) as Record<Page, PageInfo>;

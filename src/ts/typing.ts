@@ -146,5 +146,5 @@ const nextType = (): number => {
   return wait;
 };
 
-animateTyping();
-animateBlinker();
+void animateTyping();
+void animateBlinker();

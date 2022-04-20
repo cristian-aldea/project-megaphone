@@ -42,9 +42,9 @@ const setAnimate = (value: boolean) => {
 
 const setSliderPos = (button: HTMLButtonElement) => {
   const rect = button.getBoundingClientRect();
-  topBarSlider.style.width = rect.width + "px";
-  topBarSlider.style.top = button.offsetTop + "px";
-  topBarSlider.style.left = button.offsetLeft + "px";
+  topBarSlider.style.width = `${rect.width}px`;
+  topBarSlider.style.top = `${button.offsetTop}px`;
+  topBarSlider.style.left = `${button.offsetLeft}px`;
 };
 
 const onClick = (event: MouseEvent) => {
@@ -70,7 +70,7 @@ const onScroll = () => {
 
 const findActiveOption = () => {
   const wHeight = window.innerHeight;
-  const yMap: number[] = new Array(pages.length).fill(0);
+  const yMap: number[] = new Array(pages.length).fill(0) as number[];
 
   pages.forEach((page, i) => {
     yMap[i] = pageMap[page].ref.getBoundingClientRect().y;
