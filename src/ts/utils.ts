@@ -12,7 +12,7 @@ export function throttle(func: () => void, limit = 300) {
 }
 
 export function debounce(func: () => void, timeout = 300) {
-  let timer: NodeJS.Timeout;
+  let timer: number;
   return function (this: any, ...args: []) {
     clearTimeout(timer);
     timer = setTimeout(() => {

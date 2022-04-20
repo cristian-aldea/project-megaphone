@@ -7,6 +7,7 @@ export type IconType =
   | "css"
   | "docker"
   | "expressjs"
+  | "go"
   | "html"
   | "hugo"
   | "javascript"
@@ -18,7 +19,6 @@ export type IconType =
   | "python"
   | "reactjs"
   | "scss"
-  | "shell"
   | "tensorflow"
   | "typescript";
 
