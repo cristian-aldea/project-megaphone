@@ -7,7 +7,7 @@ enum TypingState {
 }
 
 const messages = [
-  "I'm a software developer.",
+  "I'm a software engineer.",
   "I love to build software...$ to solve problems!",
   "Scroll down for more details!",
   "Have a nice day :D",
