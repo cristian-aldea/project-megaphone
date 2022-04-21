@@ -35,6 +35,20 @@ footer {
   left: 0;
 }
 
+.contact-page-kofi {
+  display: block;
+  margin-top: 1rem;
+}
+
+.contact-page-kofi-img {
+  display: block;
+
+  width: 40vw;
+  max-width: 25rem;
+  min-width: 15rem;
+  margin: auto;
+}
+
 @media (min-width: $mobile-breakpoint) {
   .contact-page-entries {
     flex-direction: row;

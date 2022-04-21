@@ -1,59 +1,83 @@
 .project-card {
-  overflow: auto;
-
-  border-radius: 10px;
-
-  margin: 1rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  text-align: center;
 
+  gap: 0.25rem;
   padding: 0.5rem;
+  border-radius: 10px;
 
   background-color: $bg-color-1-transparent;
 }
 
-.project-card-image {
-  width: 4rem;
-  height: 4rem;
+.project-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-  margin-bottom: 0.25rem;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.project-card-image {
+  height: 15vw;
+  max-height: 9rem;
+  min-height: 4rem;
 }
 
 .project-card-description {
   flex: 1;
-  margin-top: 0.25rem;
 }
 
-.project-card-icons {
-  margin-top: 0.25rem;
+.project-card-links {
+  display: flex;
+  gap: 1rem;
 }
 
 .project-card-link {
   box-sizing: border-box;
-  display: block;
-  margin: 0.25rem 0 0;
-  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  text-align: center;
 
   border-radius: 1rem;
 
-  width: 100%;
+  @include button-like($bg-color-2);
+}
 
-  @include button-like($bg-color-2-transparent);
+.project-card-link-image {
+  width: 4vw;
+  min-width: 1rem;
+  max-width: 2rem;
+}
+
+.project-card-skills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .skill-icon {
   width: 1.8rem;
   height: 1.8rem;
-  margin: 0 0.2rem;
+}
+
+.skill-container {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  background-color: $bg-color-2;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 @media (min-width: $mobile-breakpoint) {
-  .project-card-image {
-    width: 5rem;
-    height: 5rem;
+  .project-card {
+    gap: 1rem;
+    flex-direction: row;
   }
 }

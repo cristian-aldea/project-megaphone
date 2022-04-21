@@ -1,18 +1,16 @@
 .projects-page-grid {
-  display: grid;
-  grid-template-columns: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 @media (min-width: $mobile-breakpoint) {
   .projects-page-grid {
-    display: grid;
-    grid-template-columns: auto auto;
   }
 }
 
 @media (min-width: $tablet-breakpoint) {
   .projects-page-grid {
-    display: grid;
-    grid-template-columns: auto auto auto;
   }
 }

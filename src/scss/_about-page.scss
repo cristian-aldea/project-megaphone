@@ -1,51 +1,18 @@
-.about-page-picture {
-  width: 12rem;
-  height: 12rem;
-  float: none;
-  display: inline-block;
-  border-radius: 10px;
-  margin-top: 1rem;
+.about-page-info {
+  display: flex;
+  flex-direction: column;
 }
 
-.about-page-info {
-  text-align: center;
+.about-page-picture {
+  width: 50vw;
+  min-width: 12rem;
+  max-width: 18rem;
+
+  border-radius: 10px;
+  align-self: center;
 }
 
 .about-page-quote {
-  text-align: center;
   margin-top: 2rem;
-
-  font-weight: bold;
-}
-
-@media (min-width: $mobile-breakpoint) {
-  .about-page-picture {
-    width: 15rem;
-    height: 15rem;
-  }
-
-  .about-page-info {
-    font-size: 1.25rem;
-  }
-
-  .about-page-quote {
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: $tablet-breakpoint) {
-  .about-page-picture {
-    width: 16rem;
-    height: 16rem;
-  }
-  .about-page-info {
-    overflow: auto;
-    display: block;
-    text-align: left;
-  }
-
-  .about-page-picture {
-    float: left;
-    margin-right: 1rem;
-  }
+  font-size: 1.25rem;
 }

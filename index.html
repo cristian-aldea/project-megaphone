@@ -42,7 +42,7 @@
   <body>
     <div class="app-content">
       <div class="section home-page" id="home-page">
-        <div class="section-content">
+        <div>
           <div class="section-title home-page-title">Welcome</div>
           <p class="home-page-line-1">I'm Cristian Aldea</p>
           <p class="home-page-line-2">
@@ -52,38 +52,44 @@
         </div>
       </div>
       <div class="section about-page" id="about-page">
-        <div class="section-content">
+        <div>
           <div class="section-title">About Me</div>
           <div class="about-page-info">
             <img src="/img/profile-512.jpg" class="about-page-picture" alt="Cristian Aldea" />
             <p>
-              Hello! I'm currently a DevOps Engineer at SAP and a Software Engineering graduate
-              student from Concordia.
+              I'm currently a DevOps Engineer at SAP, and a Software Engineering graduate from
+              Concordia University.
             </p>
             <p>
-              I solve problems with software, and have practical experience in full-stack web
-              development, machine learning, DevOps, and much more.
+              I love solving problems with software, and have professional experience in full-stack
+              web development, machine learning, DevOps, and much more.
             </p>
             <p>
               I love learning new things, and I bring consistency and excellence to any project.
             </p>
           </div>
-          <p class="about-page-quote">
-            <em>"Today is a gift! That's why we call it the Present."</em>
-          </p>
+          <div class="about-page-quote">
+            <p>My favourite quote:</p>
+            <p>
+              <em>"Today is a gift! That's why we call it the Present."</em>
+            </p>
+          </div>
         </div>
       </div>
       <div class="section projects-page" id="projects-page">
-        <div class="section-content">
+        <div>
           <div class="section-title">Projects</div>
-          <p class="projects-page-info">Here are a few of my favorites projects:</p>
-          <div class="projects-page-grid" id="projects-container"></div>
+          <p>Here are my favorites projects:</p>
+          <div class="projects-page-grid" id="projects-container">
+            Something broke! My projects can't be shown on your machine. Check that you have
+            javascript enabled and are running a modern browser.
+          </div>
         </div>
       </div>
       <div class="section contact-page" id="contact-page">
-        <div class="section-content">
+        <div>
           <div class="section-title">Contact</div>
-          <p>You can reach out to me with the links below:</p>
+          <p>Need help? Wanna chat? Feel free to reach out using the links below:</p>
           <div class="contact-page-entries">
             <a
               class="contact-page-entry"
@@ -113,6 +119,14 @@
               <img class="contact-page-icon" src="/svg/email.svg" alt="email" />
             </a>
           </div>
+          <a
+            class="contact-page-kofi"
+            href="https://ko-fi.com/koominte"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img class="contact-page-kofi-img" src="/img/kofi_button_stroke.png" alt="kofi" />
+          </a>
         </div>
         <footer>© Copyright 2022, Cristian Aldea</footer>
       </div>
@@ -139,6 +153,7 @@
           <div class="top-bar-button-content">Contact</div>
         </button>
       </div>
+
       <button id="hamburger-button" aria-label="menu-button">
         <div class="hamburger-button-line top"></div>
         <div class="hamburger-button-line middle"></div>

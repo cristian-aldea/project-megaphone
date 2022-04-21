@@ -1,12 +1,11 @@
 import { pages } from "./constants";
 
-export type IconType =
+export type SkillType =
   | "bash"
   | "cmake"
   | "cpp"
   | "css"
   | "docker"
-  | "expressjs"
   | "go"
   | "html"
   | "hugo"
@@ -28,7 +27,7 @@ export interface Project {
   image: string;
   url?: string;
   sourceUrl?: string;
-  tags: IconType[];
+  skills: SkillType[];
 }
 
 export interface Contact {

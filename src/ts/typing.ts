@@ -1,5 +1,4 @@
 import { typingCursor, typingText } from "./dom";
-import { Pauses } from "./types";
 import { sleep } from "./utils";
 
 enum TypingState {
@@ -8,16 +7,11 @@ enum TypingState {
 }
 
 const messages = [
-  "I'm a software developer",
-  "I design websites",
-  "I create solutions",
-  "Need help? Let me know",
-  "Have a nice day :)",
+  "I'm a software developer.",
+  "I love to build software...$ to solve problems!",
+  "Scroll down for more details!",
+  "Have a nice day :D",
 ];
-
-const pauses: Pauses = {
-  3: { 10: true },
-};
 
 let text = "";
 let showCursor = true;
@@ -30,13 +24,13 @@ let charIndex = 0,
 let editing = false;
 let stopEditTimestamp: number | null = null;
 
-const loop = true,
+const loop = false,
   initWait = 1500,
-  blinkWait = 500,
+  blinkWait = 530,
   speed = 1,
-  typeWait = 100 / speed,
+  typeWait = 80 / speed,
   typePause = 1000 / speed,
-  deleteWait = 50 / speed,
+  deleteWait = 40 / speed,
   doneTypingWait = 2500 / speed,
   doneDeletingWait = 1500 / speed;
 
@@ -98,7 +92,14 @@ const nextType = (): number => {
   if (state === TypingState.TYPING) {
     const tempChar = charIndex;
     const tempPhrase = phraseIndex;
-    setText(text + messages[tempPhrase][tempChar]);
+    const newChar = messages[tempPhrase][tempChar];
+    let pause = false;
+
+    if (newChar === "$") {
+      pause = true;
+    } else {
+      setText(text + messages[tempPhrase][tempChar]);
+    }
 
     if (charIndex === messages[phraseIndex].length - 1) {
       // finished typing the current phrase
@@ -118,7 +119,7 @@ const nextType = (): number => {
     } else {
       // Keep typing
       charIndex++;
-      if (pauses?.[phraseIndex]?.[charIndex]) {
+      if (pause) {
         setEditing(false);
         wait = typePause;
       } else {

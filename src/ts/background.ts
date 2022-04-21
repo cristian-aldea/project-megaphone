@@ -12,10 +12,10 @@ import { Point } from "./types";
   }
 
   // Physics constants
-  const speed = 0.03;
+  const speed = 0.02;
   const numPoints = 25;
   const connectThreshold = 0.25;
-  const dotSize = 0.012;
+  const dotSize = 0.01;
   const scrollOffsetRatio = 3;
 
   // Color constants

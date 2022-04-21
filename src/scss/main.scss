@@ -86,6 +86,16 @@ i {
   display: inline;
 }
 
+.app-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: $tablet-breakpoint;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .section {
   background: transparent;
   display: inline-block;
@@ -93,20 +103,13 @@ i {
 
   min-height: max(#{$min-height}, 100vh);
 
-  padding: $top-bar-height 0.75rem 0;
+  padding-top: $top-bar-height;
 }
 
 .section-title {
   font-size: 3rem;
   text-align: center;
   margin-top: 0.5rem;
-}
-
-.app-content {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  margin: 0 auto;
 }
 
 .background-canvas {
@@ -131,9 +134,6 @@ i {
     font-size: 1.25rem;
   }
 
-  .section {
-    width: $mobile-breakpoint;
-  }
   .section-title {
     font-size: 4rem;
     margin-top: 1rem;
@@ -141,9 +141,6 @@ i {
 }
 
 @media (min-width: $tablet-breakpoint) {
-  .section {
-    width: $tablet-breakpoint;
-  }
   .section-title {
     font-size: 5rem;
     margin-top: 2rem;

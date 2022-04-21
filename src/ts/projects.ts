@@ -1,128 +1,135 @@
-import logoUrl from "../../assets/svg/c-logo.svg";
-import bashUrl from "../../assets/svg/tags/bash.svg";
-import cmakeUrl from "../../assets/svg/tags/cmake.svg";
-import cppUrl from "../../assets/svg/tags/cpp.svg";
-import cssUrl from "../../assets/svg/tags/css.svg";
-import dockerUrl from "../../assets/svg/tags/docker.svg";
-import expressjsUrl from "../../assets/svg/tags/expressjs.svg";
-import goUrl from "../../assets/svg/tags/go.svg";
-import htmlUrl from "../../assets/svg/tags/html.svg";
-import hugoUrl from "../../assets/svg/tags/hugo.svg";
-import javascriptUrl from "../../assets/svg/tags/javascript.svg";
-import kubernetesUrl from "../../assets/svg/tags/kubernetes.svg";
-import mongodbUrl from "../../assets/svg/tags/mongodb.svg";
-import nodejsUrl from "../../assets/svg/tags/nodejs.svg";
-import openglUrl from "../../assets/svg/tags/opengl.svg";
-import powershellUrl from "../../assets/svg/tags/powershell.svg";
-import pythonUrl from "../../assets/svg/tags/python.svg";
-import reactjsUrl from "../../assets/svg/tags/reactjs.svg";
-import scssUrl from "../../assets/svg/tags/scss.svg";
-import tensorflowUrl from "../../assets/svg/tags/tensorflow.svg";
-import typescriptUrl from "../../assets/svg/tags/typescript.svg";
 import { projectsContainer } from "./dom";
-import { IconType, Project } from "./types";
+import { Project, SkillType } from "./types";
 
-const tagUrlMap: Record<IconType, string> = {
-  bash: bashUrl,
-  cmake: cmakeUrl,
-  cpp: cppUrl,
-  css: cssUrl,
-  docker: dockerUrl,
-  expressjs: expressjsUrl,
-  go: goUrl,
-  html: htmlUrl,
-  hugo: hugoUrl,
-  javascript: javascriptUrl,
-  kubernetes: kubernetesUrl,
-  mongodb: mongodbUrl,
-  nodejs: nodejsUrl,
-  opengl: openglUrl,
-  powershell: powershellUrl,
-  python: pythonUrl,
-  reactjs: reactjsUrl,
-  scss: scssUrl,
-  tensorflow: tensorflowUrl,
-  typescript: typescriptUrl,
+const skillUrlMap: Record<SkillType, string> = {
+  bash: "/svg/skills/bash.svg",
+  cmake: "/svg/skills/cmake.svg",
+  cpp: "/svg/skills/cpp.svg",
+  css: "/svg/skills/css.svg",
+  docker: "/svg/skills/docker.svg",
+  go: "/svg/skills/go.svg",
+  html: "/svg/skills/html.svg",
+  hugo: "/svg/skills/hugo.svg",
+  javascript: "/svg/skills/javascript.svg",
+  kubernetes: "/svg/skills/kubernetes.svg",
+  mongodb: "/svg/skills/mongodb.svg",
+  nodejs: "/svg/skills/nodejs.svg",
+  opengl: "/svg/skills/opengl.svg",
+  powershell: "/svg/skills/powershell.svg",
+  python: "/svg/skills/python.svg",
+  reactjs: "/svg/skills/reactjs.svg",
+  scss: "/svg/skills/scss.svg",
+  tensorflow: "/svg/skills/tensorflow.svg",
+  typescript: "/svg/skills/typescript.svg",
 };
+
+const skillColorMap: Record<SkillType, string> = {
+  bash: "#4EAA25",
+  cmake: "#064f8c",
+  cpp: "#00599c",
+  css: "#1572b6",
+  docker: "#2496ed",
+  go: "#00ADD8",
+  html: "#e34f26",
+  hugo: "#FF4088",
+  javascript: "#f7df1e",
+  kubernetes: "#326CE5",
+  mongodb: "#47A248",
+  nodejs: "#393",
+  opengl: "#5586A4",
+  powershell: "#5391FE",
+  python: "#ffe052",
+  reactjs: "#61DAFB",
+  scss: "#c69",
+  tensorflow: "#ff6f00",
+  typescript: "#3178c6",
+};
+
+const C_LOGO_URI = "/svg/c-logo.svg";
 
 const projects: Project[] = [
   {
     name: "Project Megaphone",
     description: "My main portfolio website. You're on it right now!",
-    image: logoUrl,
+    image: C_LOGO_URI,
     url: "https://www.cristianaldea.com",
     sourceUrl: "https://github.com/cristian-aldea/project-megaphone",
-    tags: ["html", "scss", "typescript"],
+    skills: ["html", "scss", "typescript"],
   },
   {
     name: "Starlog",
     description: "A blog to teach about various topics!",
-    image: logoUrl,
+    image: C_LOGO_URI,
     url: "https://blog.cristianaldea.com",
     sourceUrl: "https://github.com/cristian-aldea/starlog",
-    tags: ["hugo", "html", "css", "javascript"],
+    skills: ["hugo", "html", "css", "javascript"],
   },
   {
     name: "VoteIt",
     description: "Create polls quickly and easily!",
-    image: logoUrl,
+    image: C_LOGO_URI,
     url: "https://voteit.cristianaldea.com",
-    tags: ["mongodb", "go", "reactjs", "nodejs", "docker"],
+    skills: ["go", "mongodb", "reactjs", "nodejs", "docker"],
   },
   {
     name: "Mull Recognition",
     description: "A real-time ML object recognition app for waste!",
-    image: logoUrl,
+    image: C_LOGO_URI,
     url: "https://mull.cristianaldea.com",
     sourceUrl: "https://github.com/cristian-aldea/mull-recognition",
-    tags: ["html", "scss", "typescript", "tensorflow"],
+    skills: ["html", "scss", "typescript", "tensorflow"],
   },
   {
     name: "Simul8",
     description: "A 3D engine developed with C++ and OpenGL",
-    image: logoUrl,
+    image: C_LOGO_URI,
     sourceUrl: "https://github.com/cristian-aldea/simul8",
-    tags: ["cpp", "opengl", "cmake"],
+    skills: ["cpp", "opengl", "cmake"],
   },
   {
     name: "MMM Bot",
     description: "A discord bot for real-time updates on your Minecraft server",
-    image: logoUrl,
+    image: C_LOGO_URI,
     sourceUrl: "https://github.com/cristian-aldea/mmm-bot",
-    tags: ["python"],
+    skills: ["python"],
   },
   {
     name: "AutoMadeIt",
     description: "Various utilities and scripts made available to anyone, on any system",
-    image: logoUrl,
+    image: C_LOGO_URI,
     sourceUrl: "https://github.com/cristian-aldea/auto-made-it",
-    tags: ["python", "bash", "powershell"],
+    skills: ["python", "bash", "powershell"],
   },
 ];
 
 const projectStrings = projects.map((project) => {
   const urlString = project.url
-    ? `<a class="project-card-link" href="${project.url}">Visit</a>`
+    ? `<a class="project-card-link" href="${project.url}" target="_blank" rel="noreferrer"><img class="project-card-link-image" src="/svg/link.svg" alt="link to ${project.name}"><div>Visit</div></a>`
     : "";
   const sourceUrlString = project.sourceUrl
-    ? `<a class="project-card-link" href="${project.sourceUrl}">Source Code</a>`
+    ? `<a class="project-card-link" href="${project.sourceUrl}" target="_blank" rel="noreferrer"><img class="project-card-link-image" src="/svg/github.svg" alt="source code of ${project.name}"><div>Code</div></a>`
     : "";
 
-  const tagString = project.tags
-    .map((tag) => {
-      return `<img src="${tagUrlMap[tag]}" class="skill-icon" alt="${tag}" title="${tag}" />`;
+  const skillstring = project.skills
+    .map((skill) => {
+      return `<div class="skill-container" style="border-color:${skillColorMap[skill]};"><img src="${skillUrlMap[skill]}" class="skill-icon" alt="${skill}" title="${skill}" /><div class="skill-text">${skill}</div></div>`;
     })
     .join("");
   return `
-<div class="project-card button">
+<div class="project-card">
 <img src="${project.image}" class="project-card-image" alt="${project.name} logo" />
+<div class="project-card-content">
 <h1>${project.name}</h1>
-<div class="project-card-icons">
-  ${tagString}
-</div>
 <div class="project-card-description">${project.description}</div>
+
+<div class="project-card-links">
 ${urlString}
 ${sourceUrlString}
+</div>
+<div class="project-card-skills">
+  ${skillstring}
+</div>
+</div>
 </div>
 `;
 });
