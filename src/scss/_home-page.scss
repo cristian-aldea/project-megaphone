@@ -7,14 +7,9 @@
   animation: fadein-moveup $anim-duration $easing-function forwards;
 }
 
-.home-page-line-1 {
-  opacity: 0;
-  animation: fadein-moveup $anim-duration $easing-function 1s forwards;
-}
-
-.home-page-line-2 {
-  opacity: 0;
-  animation: fadein-moveup $anim-duration $easing-function 1.5s forwards;
+.typing-text {
+  white-space: pre-wrap;
+  display: inline-block;
 }
 
 @media (min-width: $mobile-breakpoint) {

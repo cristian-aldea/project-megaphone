@@ -123,12 +123,6 @@ i {
   z-index: -1;
 }
 
-.typing-text-cursor {
-  position: relative;
-  bottom: 0.1em;
-  right: 0.24em;
-}
-
 @media (min-width: $mobile-breakpoint) {
   body {
     font-size: 1.25rem;
