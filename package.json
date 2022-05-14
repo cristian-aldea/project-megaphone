@@ -1,12 +1,13 @@
 {
   "name": "project-megaphone",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
+    "deploy": "bash ./deploy.sh",
+    "dev": "vite",
     "lint": "eslint ./src/ --ext .js,.jsx,.ts,.tsx",
+    "preview": "vite preview",
     "update": "npx npm-check-updates -u && npm i"
   },
   "devDependencies": {
