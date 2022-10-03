@@ -7,7 +7,6 @@ import { Point } from "./types";
 
   if (!ctx) {
     console.error("background - ERROR - Unable to get 2D context from canvas");
-
     return;
   }
 

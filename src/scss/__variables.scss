@@ -4,12 +4,12 @@ $bg-color-2: #272727;
 
 $bg-color-1-transparent: transparentize(
   $color: $bg-color-1,
-  $amount: 0.15,
+  $amount: 0.1,
 );
 
 $bg-color-2-transparent: transparentize(
   $color: $bg-color-2,
-  $amount: 0.15,
+  $amount: 0.1,
 );
 
 $main-color: white;

@@ -1,16 +1,16 @@
-// Based on recommendations from https://typescript-eslint.io/docs/linting/
 module.exports = {
-  root: true,
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  overrides: [],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ["./tsconfig.json"],
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
   plugins: ["@typescript-eslint"],
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "prettier",
-  ],
+  rules: {},
 };

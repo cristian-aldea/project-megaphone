@@ -8,9 +8,11 @@ const BLINKER = '<div style="display: inline-block;position: relative;top: -4px;
 
 const message = `I'm a software engineer.${
   CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE
-}I love to build software...${CHAR_SHORT_PAUSE} to solve problems!${
+}In other words, I love to build software...${CHAR_SHORT_PAUSE} to solve problems!${
   CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE
-}Scroll down for more details!${CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE}Have a nice day :D`;
+}Scroll down to learn more about me!${
+  CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE
+}Have a nice day :)`;
 let text = "";
 let showCursor = true;
 
