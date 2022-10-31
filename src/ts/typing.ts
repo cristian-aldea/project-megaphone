@@ -4,11 +4,11 @@ import { sleep } from "./utils";
 const CHAR_SHORT_PAUSE = "@";
 const CHAR_LONG_PAUSE = "#";
 const CHAR_NEW_LINE = "$";
-const BLINKER = '<div style="display: inline-block;position: relative;top: -4px;">|</div>';
+const BLINKER = '<div style="display: inline-block;position: relative;top: -2px;">|</div>';
 
 const message = `I'm a software engineer.${
   CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE
-}In other words, I love to build software...${CHAR_SHORT_PAUSE} to solve problems!${
+}I love to build software...${CHAR_SHORT_PAUSE} to solve problems!${
   CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE
 }Scroll down to learn more about me!${
   CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE
