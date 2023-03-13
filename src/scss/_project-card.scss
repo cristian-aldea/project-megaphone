@@ -5,7 +5,7 @@
 
   gap: 0.25rem;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: $border-radius;
 
   background-color: $bg-color-1-transparent;
 }
@@ -42,7 +42,7 @@
   padding: 0.75rem;
   text-align: center;
 
-  border-radius: 1rem;
+  border-radius: $border-radius;
 
   @include button-like($bg-color-2);
 }
@@ -67,7 +67,7 @@
 .skill-container {
   border-width: 2px;
   border-style: solid;
-  border-radius: 8px;
+  border-radius: $border-radius;
   background-color: $bg-color-2;
   padding: 0.25rem;
   display: flex;

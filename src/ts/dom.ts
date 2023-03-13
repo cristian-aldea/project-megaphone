@@ -10,3 +10,4 @@ export const typingText = document.getElementById("typing-text") as HTMLDivEleme
 export const typingCursor = document.getElementById("typing-cursor") as HTMLDivElement;
 
 export const projectsContainer = document.getElementById("projects-container") as HTMLDivElement;
+export const timelineContainer = document.getElementById("timeline-container") as HTMLDivElement;

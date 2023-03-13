@@ -50,7 +50,7 @@ const C_LOGO_URI = "/svg/c-logo.svg";
 const projects: Project[] = [
   {
     name: "Project Megaphone",
-    description: "My main portfolio website. You're on it right now!",
+    description: "My main website. You're on it right now!",
     image: C_LOGO_URI,
     url: "https://www.cristianaldea.com",
     sourceUrl: "https://github.com/cristian-aldea/project-megaphone",
@@ -102,7 +102,7 @@ const projects: Project[] = [
   },
   {
     name: "AutoMadeIt",
-    description: "Various utilities and scripts made available to anyone, on any system",
+    description: "Various utilities and scripts made available to anyone, anywhere",
     image: C_LOGO_URI,
     sourceUrl: "https://github.com/cristian-aldea/auto-made-it",
     skills: ["python", "bash", "powershell"],

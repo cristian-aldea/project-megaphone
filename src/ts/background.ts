@@ -20,7 +20,7 @@ import { Point } from "./types";
   // Color constants
   const hue = 0;
   const saturation = 0;
-  const lightness = 30;
+  const lightness = 15;
   const pointColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   const lineColor = `hsl(${hue}, ${saturation}%, ${lightness * 0.6}%)`;
   const bgc1 = `hsl(${hue}, ${saturation}%, ${lightness * 0.5}%)`;

@@ -8,11 +8,9 @@ const BLINKER = '<div style="display: inline-block;position: relative;top: -2px;
 
 const message = `I'm a software engineer.${
   CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE
-}I love to build software...${CHAR_SHORT_PAUSE} to solve problems!${
+}That means I love to build software...${CHAR_SHORT_PAUSE} to solve problems!${
   CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE
-}Scroll down to learn more about me!${
-  CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE
-}Have a nice day :)`;
+}Scroll down to learn more!${CHAR_LONG_PAUSE + CHAR_NEW_LINE + CHAR_NEW_LINE}Have a nice day :)`;
 let text = "";
 let showCursor = true;
 
@@ -22,12 +20,12 @@ let charIndex = 0,
 let editing = false;
 let stopEditTimestamp: number | null = null;
 
-const initWait = 1500,
+const initWait = 800,
   blinkWait = 530,
   speed = 1,
   typeWait = 80 / speed,
   shortWait = 500 / speed,
-  longWait = 2000 / speed;
+  longWait = 1500 / speed;
 
 const setShowCursor = (show: boolean) => {
   showCursor = show;
