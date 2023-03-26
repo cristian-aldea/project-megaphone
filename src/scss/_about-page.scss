@@ -16,3 +16,10 @@
   margin-top: 2rem;
   font-size: 1.25rem;
 }
+
+.timeline-item-dot {
+  width: 3rem;
+  height: 3rem;
+  background-color: $bg-color-2;
+  border-radius: 50%;
+}

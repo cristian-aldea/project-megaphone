@@ -7,12 +7,24 @@ export interface TimelineItem {
   description: string;
 }
 
-const timeline: TimelineItem[] = [];
+const timeline: TimelineItem[] = [
+  {
+    name: "test",
+    date: new Date(),
+    description: "asdfasdfasdfasdfasdfasdfasdfasdfasdf",
+    picture: "asdfasdfadsf",
+  },
+];
 
 const timelineStrings = timeline.map((item) => {
   return `
-    <div>
-        Timeline item:${item.name}
+    <div class="timeline-item">
+      <div class="timeline-item-dot"></div>
+      <div class="timeline-item-content">
+        <div>Date</div>
+        <div>Name</div>
+        <div>Description</div>
+      </div>
     </div>
     `;
 });
