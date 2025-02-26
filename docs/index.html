@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- basics -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- metadata -->
+    <title>Cristian Aldea</title>
+    <meta name="description" content="Cristian Aldea's main portfolio website" />
+    <meta name="author" content="Cristian Aldea" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- icon links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- font styles -->
+    <style>
+      @font-face {
+        font-family: "Roboto Mono";
+        font-style: normal;
+        font-weight: 400;
+        src: local(""), url("fonts/roboto-mono-v13-latin-regular.woff2") format("woff2"),
+          url("fonts/roboto-mono-v13-latin-regular.woff") format("woff");
+      }
+      /* roboto-mono-italic - latin */
+      @font-face {
+        font-family: "Roboto Mono";
+        font-style: italic;
+        font-weight: 400;
+        src: local(""), url("fonts/roboto-mono-v13-latin-italic.woff2") format("woff2"),
+          url("fonts/roboto-mono-v13-latin-italic.woff") format("woff");
+      }
+    </style>
+
+    <!-- scripts -->
+    
+    <script type="module" crossorigin src="/assets/index-dff0635b.js"></script>
+    <link rel="stylesheet" href="/assets/index-d8a129fa.css">
+  </head>
+  <body>
+    <div class="app-content">
+      <div class="section home-page" id="home-page">
+        <div class="home-page-content">
+          <div class="section-title home-page-title">Welcome</div>
+          <div id="typing-text" class="typing-text"></div>
+        </div>
+      </div>
+      <div class="section about-page" id="about-page">
+        <div class="about-page-content">
+          <div class="section-title">About Me</div>
+          <div class="about-page-info">
+            <img src="img/profile-512.jpg" class="about-page-picture" alt="Cristian Aldea" />
+            <p>
+              I'm currently a Software Development Engineer at Amazon, and I graduated from
+              Concordia University with a Bachelor in Software Engineering.
+            </p>
+            <p>
+              Software is a beautiful and flexible tool that can do great good if used correctly. No
+              matter how much yelling at the computer I'll need to do, I'm here to make it do
+              whatever you need it to.
+            </p>
+          </div>
+          <div class="about-page-quote">
+            <p>My favourite quote:</p>
+            <p>
+              <em>"Today is a gift! That's why we call it the Present."</em>
+            </p>
+          </div>
+          <!-- <div id="timeline-container">
+            Something broke! The website failed to load my timeline for some reason. Check that you
+            have JavaScript enabled and that you're using a modern web browser.
+          </div> -->
+        </div>
+      </div>
+      <div class="section projects-page" id="projects-page">
+        <div>
+          <div class="section-title">Projects</div>
+          <p>Here are my favorites projects:</p>
+          <div class="projects-page-grid" id="projects-container">
+            Something broke! The website failed to load my projects for some reason. Check that you
+            have JavaScript enabled and that you're using a modern web browser.
+          </div>
+        </div>
+      </div>
+      <div class="section contact-page" id="contact-page">
+        <div>
+          <div class="section-title">Contact</div>
+          <p>Need help? Wanna chat? Feel free to reach out using the links below:</p>
+          <div class="contact-page-entries">
+            <a
+              class="contact-page-entry"
+              href="https://www.linkedin.com/in/cristianaldea/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <img class="contact-page-icon" src="svg/linkedin.svg" alt="linkedin" />
+            </a>
+            <a
+              class="contact-page-entry"
+              href="https://github.com/cristian-aldea"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <img class="contact-page-icon" src="svg/github.svg" alt="github" />
+            </a>
+          </div>
+        </div>
+        <footer>© Copyright 2025, Cristian Aldea</footer>
+      </div>
+    </div>
+    <canvas id="bg-canvas" class="background-canvas"></canvas>
+    <nav id="top-bar">
+      <button id="top-bar-title" class="top-bar-title">Cristian Aldea</button>
+      <div id="top-bar-buttons" class="closed animate">
+        <div id="top-bar-slider" class="top-bar-slider animate"></div>
+        <button
+          id="home-page-button"
+          class="top-bar-button noselect top-bar-button-active"
+          draggable="false"
+        >
+          <div class="top-bar-button-content">Home</div>
+        </button>
+        <button id="about-page-button" class="top-bar-button noselect" draggable="false">
+          <div class="top-bar-button-content">About</div>
+        </button>
+        <button id="projects-page-button" class="top-bar-button noselect" draggable="false">
+          <div class="top-bar-button-content">Projects</div>
+        </button>
+        <button id="contact-page-button" class="top-bar-button noselect" draggable="false">
+          <div class="top-bar-button-content">Contact</div>
+        </button>
+      </div>
+
+      <button id="hamburger-button" aria-label="menu-button">
+        <div class="hamburger-button-line top"></div>
+        <div class="hamburger-button-line middle"></div>
+        <div class="hamburger-button-line bottom"></div>
+      </button>
+    </nav>
+  </body>
+</html>
