@@ -10,6 +10,8 @@ git add docs/
 git commit -m "Create CNAME"
 
 npm run build
+rm -rf docs
+mkdir docs
 mv dist/* docs
 git add docs/
 git commit -m "Deploy website"
