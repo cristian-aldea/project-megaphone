@@ -15,5 +15,5 @@ mv dist/* docs
 git add docs/
 git commit -m "Deploy website"
 
-git push -u origin gh-pages --force
+git push -u origin gh-pages --force-with-lease
 git checkout main
