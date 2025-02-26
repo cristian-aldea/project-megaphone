@@ -1,5 +1,4 @@
 export default {
-  base: "/test",
   build: {
     target: "es2015",
   },
