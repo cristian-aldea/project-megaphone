@@ -1,5 +1,5 @@
 import { bgCanvas } from "./dom";
-import { Point } from "./types";
+import type { Point } from "./types";
 
 (function () {
   const canvas = bgCanvas;

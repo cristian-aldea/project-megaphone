@@ -1,3 +1,5 @@
+@use "_variables";
+
 .projects-page-grid {
   display: flex;
   flex-direction: column;
@@ -5,12 +7,12 @@
   margin-top: 1rem;
 }
 
-@media (min-width: $mobile-breakpoint) {
+@media (min-width: variables.$mobile-breakpoint) {
   .projects-page-grid {
   }
 }
 
-@media (min-width: $tablet-breakpoint) {
+@media (min-width: variables.$tablet-breakpoint) {
   .projects-page-grid {
   }
 }

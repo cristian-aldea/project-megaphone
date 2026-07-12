@@ -1,13 +1,16 @@
+@use "sass:color";
+@use "_variables";
+
 @mixin button-like($bg-color, $bg-color-hover: $bg-color) {
-  transition: background-color $anim-duration $easing-function;
+  transition: background-color variables.$anim-duration variables.$easing-function;
   background-color: $bg-color;
 
   &:hover {
-    background-color: lighten($bg-color-hover, 10%);
+    background-color: color.adjust($bg-color-hover, $lightness: 10%);
   }
 
   &:active {
     transition: none;
-    background-color: lighten($bg-color-hover, 20%);
+    background-color: color.adjust($bg-color-hover, $lightness: 20%);
   }
 }

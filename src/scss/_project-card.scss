@@ -1,3 +1,6 @@
+@use "_mixins";
+@use "_variables";
+
 .project-card {
   display: flex;
   flex-direction: column;
@@ -5,9 +8,9 @@
 
   gap: 0.25rem;
   padding: 0.5rem;
-  border-radius: $border-radius;
+  border-radius: variables.$border-radius;
 
-  background-color: $bg-color-1-transparent;
+  background-color: variables.$bg-color-1-transparent;
 }
 
 .project-card-content {
@@ -42,9 +45,9 @@
   padding: 0.75rem;
   text-align: center;
 
-  border-radius: $border-radius;
+  border-radius: variables.$border-radius;
 
-  @include button-like($bg-color-2);
+  @include mixins.button-like(variables.$bg-color-2);
 }
 
 .project-card-link-image {
@@ -67,15 +70,15 @@
 .skill-container {
   border-width: 2px;
   border-style: solid;
-  border-radius: $border-radius;
-  background-color: $bg-color-2;
+  border-radius: variables.$border-radius;
+  background-color: variables.$bg-color-2;
   padding: 0.25rem;
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
 
-@media (min-width: $mobile-breakpoint) {
+@media (min-width: variables.$mobile-breakpoint) {
   .project-card {
     gap: 1rem;
     flex-direction: row;

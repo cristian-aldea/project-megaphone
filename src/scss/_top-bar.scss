@@ -1,3 +1,6 @@
+@use "_mixins";
+@use "_variables";
+
 #top-bar {
   display: flex;
   position: fixed;
@@ -5,9 +8,9 @@
   top: 0;
   right: 0;
   left: 0;
-  height: $top-bar-height;
+  height: variables.$top-bar-height;
 
-  background-color: $bg-color-1-transparent;
+  background-color: variables.$bg-color-1-transparent;
 
   justify-content: space-between;
   align-items: center;
@@ -25,17 +28,17 @@
 
   align-items: center;
 
-  @include button-like(rgba(0, 0, 0, 0), $bg-color-1-transparent);
+  @include mixins.button-like(rgba(0, 0, 0, 0), variables.$bg-color-1-transparent);
 }
 
 #top-bar-buttons {
   display: flex;
   position: fixed;
-  top: $top-bar-height;
+  top: variables.$top-bar-height;
   right: 0;
   left: 0;
 
-  background-color: $bg-color-1-transparent;
+  background-color: variables.$bg-color-1-transparent;
 
   flex-direction: column;
   align-items: stretch;
@@ -47,15 +50,19 @@
 
 .animate {
   &#top-bar-buttons {
-    transition: opacity 0.3s $easing-function, visibility 0s;
+    transition:
+      opacity 0.3s variables.$easing-function,
+      visibility 0s;
   }
   &#top-bar-buttons.closed {
-    transition: opacity 0.3s $easing-function, visibility 0s 0.3s;
+    transition:
+      opacity 0.3s variables.$easing-function,
+      visibility 0s 0.3s;
   }
   &.top-bar-slider {
     transition-property: width, top;
     transition-duration: 0.3s;
-    transition-timing-function: $easing-function;
+    transition-timing-function: variables.$easing-function;
   }
 }
 
@@ -67,22 +74,22 @@
 .top-bar-slider {
   position: absolute;
 
-  height: $top-bar-height;
+  height: variables.$top-bar-height;
 
-  background-color: $main-color;
+  background-color: variables.$main-color;
 
   z-index: 1;
 
   cursor: pointer;
 }
 
-@media (min-width: $mobile-breakpoint) {
+@media (min-width: variables.$mobile-breakpoint) {
   .top-bar-title {
     font-size: 2.5rem;
   }
 }
 
-@media (min-width: $tablet-breakpoint) {
+@media (min-width: variables.$tablet-breakpoint) {
   #top-bar-buttons {
     display: flex;
     position: relative;
@@ -103,7 +110,7 @@
     &.top-bar-slider {
       transition-property: width, left;
       transition-duration: 0.3s;
-      transition-timing-function: $easing-function;
+      transition-timing-function: variables.$easing-function;
     }
   }
 }
@@ -129,10 +136,12 @@
 .hamburger-button-line {
   height: 5px;
   width: 100%;
-  background-color: $main-color;
+  background-color: variables.$main-color;
   border-radius: 5px;
 
-  transition: transform 0.3s, opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 #hamburger-button.active {
@@ -149,7 +158,7 @@
   }
 }
 
-@media (min-width: $tablet-breakpoint) {
+@media (min-width: variables.$tablet-breakpoint) {
   #hamburger-button {
     display: none;
   }
@@ -162,12 +171,12 @@
 
   font-size: 2rem;
   padding: 0rem 1rem;
-  height: $top-bar-height;
+  height: variables.$top-bar-height;
 
   align-items: center;
   justify-content: center;
 
-  @include button-like(rgba(0, 0, 0, 0), $bg-color-1-transparent);
+  @include mixins.button-like(rgba(0, 0, 0, 0), variables.$bg-color-1-transparent);
 }
 
 .top-bar-button-content {
@@ -176,5 +185,5 @@
 }
 
 .top-bar-button.active {
-  color: $bg-color-1 !important;
+  color: variables.$bg-color-1 !important;
 }

@@ -87,7 +87,7 @@ const nextBlinker = () => {
 };
 
 const nextType = (): number => {
-  let wait = 0;
+  let wait;
 
   const currChar = message[charIndex];
 

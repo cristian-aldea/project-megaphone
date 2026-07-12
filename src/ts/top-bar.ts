@@ -1,6 +1,6 @@
 import { pageMap, pages } from "./constants";
 import { hamburgerButton, topBar, topBarButtons, topBarSlider, topBarTitle } from "./dom";
-import { Page } from "./types";
+import type { Page } from "./types";
 import { debounce } from "./utils";
 
 let menuOpen = false;

@@ -43,7 +43,7 @@ export interface Point {
   dy: number;
 }
 
-export type Page = typeof pages[number];
+export type Page = (typeof pages)[number];
 
 export interface TopBarOption {
   title: string;

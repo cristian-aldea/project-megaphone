@@ -1,10 +1,12 @@
+@use "_variables";
+
 .home-page {
   font-size: 1.25rem;
 }
 
 .home-page-title {
   opacity: 0;
-  animation: fadein-moveup $anim-duration $easing-function forwards;
+  animation: fadein-moveup variables.$anim-duration variables.$easing-function forwards;
 }
 
 .typing-text {
@@ -12,7 +14,7 @@
   display: inline-block;
 }
 
-@media (min-width: $mobile-breakpoint) {
+@media (min-width: variables.$mobile-breakpoint) {
   .home-page {
     font-size: 2rem;
   }

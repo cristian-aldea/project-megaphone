@@ -1,4 +1,4 @@
-import { Page } from "./types";
+import type { Page } from "./types";
 
 export const pages = ["Home", "About", "Projects", "Contact"] as const;
 // export let pageNames: keyof typeof pages;

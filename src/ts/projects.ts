@@ -1,5 +1,5 @@
 import { projectsContainer } from "./dom";
-import { Project, SkillType } from "./types";
+import type { Project, SkillType } from "./types";
 
 const skillUrlMap: Record<SkillType, string> = {
   bash: "svg/skills/bash.svg",

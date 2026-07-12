@@ -1,15 +1,15 @@
 // global dependencies
-@import "./_keyframes";
-@import "./_variables";
-@import "./_mixins";
+@use "_keyframes";
+@use "_variables";
+@use "_mixins";
 
 // partials
-@import "./about-page";
-@import "./contact-page";
-@import "./home-page";
-@import "./project-card";
-@import "./projects-page";
-@import "./top-bar";
+@use "about-page";
+@use "contact-page";
+@use "home-page";
+@use "project-card";
+@use "projects-page";
+@use "top-bar";
 
 // CSS Reset
 * {
@@ -31,7 +31,7 @@ body {
   font-weight: normal;
   font-size: 16px;
 
-  color: $main-color;
+  color: variables.$main-color;
   background-color: black;
 
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
@@ -50,12 +50,12 @@ button {
 }
 
 a {
-  transition: color $anim-duration $easing-function;
+  transition: color variables.$anim-duration variables.$easing-function;
   color: inherit;
   text-decoration: none;
 
   &:hover {
-    color: $main-color;
+    color: variables.$main-color;
   }
 }
 
@@ -90,7 +90,7 @@ i {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: $tablet-breakpoint;
+  max-width: variables.$tablet-breakpoint;
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0 1rem;
@@ -101,9 +101,9 @@ i {
   display: inline-block;
   box-sizing: border-box;
 
-  min-height: max(#{$min-height}, 100vh);
+  min-height: max(#{variables.$min-height}, 100vh);
 
-  padding-top: $top-bar-height;
+  padding-top: variables.$top-bar-height;
 }
 
 .section-title {
@@ -123,7 +123,7 @@ i {
   z-index: -1;
 }
 
-@media (min-width: $mobile-breakpoint) {
+@media (min-width: variables.$mobile-breakpoint) {
   body {
     font-size: 1.25rem;
   }
@@ -134,7 +134,7 @@ i {
   }
 }
 
-@media (min-width: $tablet-breakpoint) {
+@media (min-width: variables.$tablet-breakpoint) {
   .section-title {
     font-size: 5rem;
     margin-top: 2rem;
